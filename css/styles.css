@@ -8,6 +8,7 @@
   --light-green: #46908c;
   --dark-green: #0a4346;
   --white: #fff;
+  --width: 100%;
 }
 
 body {
@@ -16,18 +17,19 @@ body {
   font-family: "spartan", sans-serif;
 }
 
-header {
-  background-color: #0a4346cf;
-  color: var(--white);
-  padding: 20px;
-}
-
 nav {
   list-style: none;
   margin: 0px;
-  padding: 10px;
   display: flex;
   justify-content: space-between;
+  background-color: #0a4346ac;
+  width: var(--width);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  transition: 0.25s linear;
+  /* nav transition code from @frontendjoe (IG) */
 }
 
 nav ul {
@@ -57,6 +59,45 @@ nav ul li a {
     display: block;
     margin: 10px 0;
   }
+
+  /* burger container */
+  #burger-check {
+    margin: 20px;
+  }
+  #burger-container {
+    max-width: 70px;
+  }
+
+  #burger-menu:hover {
+    transform: rotate(90deg);
+  }
+
+  .bar {
+    height: 3px;
+    width: 30px;
+    margin-top: -8px;
+    background: var(--white);
+    margin-bottom: 15px;
+    border-radius: 25px;
+    position: relative;
+    -webkit-transition: 0.3s all ease;
+    transition: 0.3s all ease;
+  }
+
+  /* Burger menu cross effect by @webdoktoru (IG) */
+  #burger-menu:hover .bar.center {
+    transform: scale(0);
+  }
+
+  #burger-menu:hover .bar.top {
+    transform: translateX(0) translateY(10px) rotate(45deg);
+    background: var(--dark-green);
+  }
+
+  #burger-menu:hover .bar.bottom {
+    background-color: var(--dark-green);
+    transform: translateX(0) translateY(-10px) rotate(-45deg);
+  }
 }
 
 /* desktop */
@@ -68,5 +109,11 @@ nav ul li a {
 
   nav ul li {
     margin: 0 20px;
+  }
+
+  /* Logo */
+  .nav-container img {
+    padding-left: 20px;
+    padding-top: 20px;
   }
 }
