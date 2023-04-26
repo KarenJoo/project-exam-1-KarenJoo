@@ -35,7 +35,9 @@ nav {
 nav ul {
   list-style: none;
   margin: 0px;
-  padding: 0px;
+  padding: 0px;  
+  padding-right: 20px;
+
 }
 
 nav ul li {
@@ -48,9 +50,18 @@ nav ul li a {
   text-decoration: none;
 }
 
+.nav-container img {
+    width: 150px;
+    padding-left: 20px;
+}
+
+#burger-check {
+    display: none;
+}
+
 /* mobile screen */
 
-@media screen and (min-width: 250px) and (max-width: 767px) {
+@media screen and (min-width: 250px) and (max-width: 667px) {
   nav {
     flex-direction: column;
   }
@@ -60,18 +71,42 @@ nav ul li a {
     margin: 10px 0;
   }
 
-  /* burger container */
-  #burger-check {
-    margin: 20px;
+  .nav-container {
+    display: flex;
+    flex-direction: row;
+    max-width: var(--width);
+    min-width: 250px;
   }
+
+  .nav-container img {
+    height: 40px;
+    margin: 0px;
+    padding: 20px;
+  }
+
+  /* burger container */
+
+  .nav-links,
+  #burger-check {
+    display: none;
+  }
+
+  #burger-check:checked ~ .nav-links {
+    display: block;
+    padding: 20px 40px;
+  }
+
   #burger-container {
     max-width: 70px;
+    height: 70px;
+    padding: 20px;
+    padding-top: 80px;
   }
 
   #burger-menu:hover {
     transform: rotate(90deg);
   }
-
+  /* Burger menu cross effect by @webdoktoru (IG) */
   .bar {
     height: 3px;
     width: 30px;
@@ -84,7 +119,6 @@ nav ul li a {
     transition: 0.3s all ease;
   }
 
-  /* Burger menu cross effect by @webdoktoru (IG) */
   #burger-menu:hover .bar.center {
     transform: scale(0);
   }
