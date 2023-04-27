@@ -43,6 +43,12 @@ nav ul li a {
   text-decoration: none;
 }
 
+.hero {
+  height: 600px;
+  background-color: #000;
+  width: var(--width);
+}
+
 /* mobile screen */
 
 @media screen and (min-width: 250px) and (max-width: 667px) {
@@ -53,7 +59,7 @@ nav ul li a {
   header img {
     height: 50px;
     width: 250px;
-    padding: 20px;
+    padding-top: 15px;
     margin: 0 auto;
   }
 
@@ -80,7 +86,7 @@ nav ul li a {
   .nav-links {
     height: 10px;
     width: 100px;
-    padding-top: 40px;
+    padding-top: 35px;
   }
 
   .links ul {
@@ -145,6 +151,11 @@ nav ul li a {
     background-color: #000;
     transform: translateX(0) translateY(-10px) rotate(-45deg);
   }
+
+  .hero img {
+    height: auto;
+    object-position: top 0px right 500px;
+  }
 }
 
 /* desktop */
@@ -152,10 +163,11 @@ nav ul li a {
 @media screen and (min-width: 668px) {
   header img {
     margin-right: auto;
-    margin-top: 10px;
+    margin-top: 20px;
     width: 200px;
     padding-left: 20px;
   }
+
   nav {
     justify-content: flex-start;
   }
@@ -165,7 +177,6 @@ nav ul li a {
   }
 
   /* Logo */
-
   .nav-container img {
     width: 300px;
     padding-left: 20px;
@@ -174,5 +185,10 @@ nav ul li a {
 
   #burger-check {
     display: none;
+  }
+
+  .hero img {
+    height: auto;
+    object-position: top 0px right 100px;
   }
 }
