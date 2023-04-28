@@ -1,6 +1,6 @@
 @font-face {
   font-family: "spartan";
-  src: url("../League_Spartan/LeagueSpartan-VariableFont_wght.ttf")
+  src: url("../League_Spartan/static/LeagueSpartan-Light.ttf")
     format("truetype");
 }
 
@@ -9,6 +9,7 @@
   --dark-green: #0a4346;
   --white: #fff;
   --width: 100%;
+  --box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 header {
@@ -48,16 +49,36 @@ nav ul li a {
 }
 
 /* Latest posts */
-.latest-posts {
-  height: 200px;
+
+.topic-content,
+.latest-container {
+  height: 300px;
   max-width: var(--width);
   background-color: var(--white);
+  margin-top: 40px;
+  margin: 20px;
+  box-shadow: var(--box-shadow);
 }
-.section-header h2 {
+
+.section-header {
   color: var(--light-green);
-  font-size: 45px;
-  margin: 0 auto;
+  text-align: center;
 }
+
+.section-header h2 {
+  font-size: 50px;
+  padding-top: 10px;
+}
+
+h3 {
+    color: #000; 
+}
+
+/* topic of the month */
+.topic-logo {
+    height: 300px;
+    width: var(--width);
+  }
 
 /* mobile screen */
 
@@ -162,8 +183,23 @@ nav ul li a {
     transform: translateX(0) translateY(-10px) rotate(-45deg);
   }
 
+  .hero {
+    width: 100%;
+  }
   .hero img {
-    object-position: top 0px right 500px;
+    object-position: top 0px left;
+    width: 100%;
+    object-fit: cover;
+    height: 600px;
+  }
+
+  /* topic content */
+  
+
+  .topic-logo img {
+    height: auto;
+    width: 70%;
+    padding-left: 70px;
   }
 }
 
