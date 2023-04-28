@@ -20,11 +20,15 @@ header {
   margin: 0px;
   transition: 0.25s linear;
   justify-content: space-between;
+  position: fixed;
+  z-index: 1;
 }
 
 body {
   background-color: var(--light-green);
   margin: 0;
+  height: auto;
+  max-width: var(--width);
   font-family: "spartan", sans-serif;
 }
 
@@ -43,10 +47,16 @@ nav ul li a {
   text-decoration: none;
 }
 
-.hero {
-  height: 600px;
-  background-color: #000;
-  width: var(--width);
+/* Latest posts */
+.latest-posts {
+  height: 200px;
+  max-width: var(--width);
+  background-color: var(--white);
+}
+.section-header h2 {
+  color: var(--light-green);
+  font-size: 45px;
+  margin: 0 auto;
 }
 
 /* mobile screen */
@@ -153,7 +163,6 @@ nav ul li a {
   }
 
   .hero img {
-    height: auto;
     object-position: top 0px right 500px;
   }
 }
@@ -187,8 +196,27 @@ nav ul li a {
     display: none;
   }
 
+  .hero {
+    position: relative;
+  }
+
+  .hero-logo {
+    background-image: url("../icons/logo-big.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    height: 400px;
+    width: 500px;
+    margin-left: 30px;
+    position: absolute;
+    top: 40%;
+  }
+
   .hero img {
-    height: auto;
-    object-position: top 0px right 100px;
+    height: 600px;
+    background-color: #000;
+    max-width: var(--width);
+    width: 100%;
+    object-fit: cover;
   }
 }
