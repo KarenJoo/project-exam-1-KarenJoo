@@ -85,16 +85,17 @@ h3 {
 
 .section-flex-container {
   margin-top: 30px;
-  height: 500px;
+  height: auto;
   width: var(--width);
   display: flex;
+  margin-bottom: 200px;
 }
 
 .lifestyle-container,
 .health-container {
   background-color: var(--light-green);
   width: 500px;
-  height: auto;
+  height: 300px;
 }
 
 .health-flex,
@@ -104,6 +105,72 @@ h3 {
   margin: 10px;
   box-shadow: var(--box-shadow);
   background-color: var(--white);
+}
+
+/* footer */
+.blog-footer {
+  background-color: var(--dark-green);
+  color: #fff;
+  width: var(--width);
+  height: 400px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--white);
+  padding: 20px;
+}
+
+.footer-row-1 {
+  text-align: center;
+  width: 20%;
+}
+
+.footer-logo {
+  margin: 100px auto;
+}
+
+.footer-logo img {
+  width: 200px;
+  height: auto;
+  margin-left: 20px;
+}
+
+.footer-row-2 {
+  margin-top: 70px;
+}
+
+.footer-row-2 p {
+  padding-left: 50px;
+  margin-left: 100px;
+}
+
+.footer-info h3 {
+  text-align: center;
+  padding-left: 100px;
+}
+
+.footer-row-3 h5 {
+  margin: 0px auto;
+  margin-left: 100px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.footer-links {
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  margin-left: 100px;
+}
+
+.blog-footer h3 {
+  color: var(--white);
+}
+
+.footer-links li {
+  list-style: none;
+  padding: 10px;
 }
 
 /* mobile screen */
@@ -235,17 +302,61 @@ h3 {
   .section-flex-container {
     flex-direction: column;
     width: 100%;
+    max-width: var(--width);
+  }
+
+  .health-container {
+    height: 500px;
   }
 
   .lifestyle-container,
   .health-container {
     margin: 0 auto;
-    width: 100%;
+    width: var(--width);
+    max-width: var(--width);
+    padding-right: 20px;
+    box-sizing: border-box;
   }
 
   .lifestyle-container h2,
   .health-container h2 {
     margin-top: 30px;
+  }
+
+  .health-flex,
+  .lifestyle-flex {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  /* footer */
+
+  .blog-footer {
+    height: auto;
+    width: var(--width);
+  }
+  .footer-row-1 {
+    margin: 0 auto;
+  }
+
+  .footer-logo {
+    height: 80px;
+    margin: 20px auto;
+  }
+
+  .footer-logo img {
+    height: 30px;
+    margin-top: 30px;
+  }
+
+  .footer-row-2 {
+    padding: 0px;
+    margin: 0 auto;
+  }
+
+  .footer-info p {
+    margin-top: 10px;
   }
 }
 
@@ -343,5 +454,22 @@ h3 {
     flex: 1 1 auto;
     margin: 20px;
     width: 50%;
+  }
+
+  /* footer */
+  .blog-footer {
+    display: flex;
+  }
+
+  .footer-row-1 {
+    flex: 0 0 auto;
+  }
+
+  .footer-row-2 {
+    flex: 1 1 auto;
+  }
+
+  .footer-row-3 {
+    flex: 2 2 auto;
   }
 }
