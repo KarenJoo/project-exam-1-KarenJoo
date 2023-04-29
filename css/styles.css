@@ -268,11 +268,11 @@ h3 {
 
   #burger-menu:hover .bar.top {
     transform: translateX(0) translateY(10px) rotate(45deg);
-    background: #000;
+    background: var(--white);
   }
 
   #burger-menu:hover .bar.bottom {
-    background-color: #000;
+    background-color: var(--white);
     transform: translateX(0) translateY(-10px) rotate(-45deg);
   }
 
@@ -356,7 +356,9 @@ h3 {
   }
 
   .footer-info p {
-    margin-top: 10px;
+    margin-top: 30px;
+    padding-left: 10px;
+    text-align: center;
   }
 }
 
