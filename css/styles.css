@@ -8,7 +8,7 @@
   --light-green: #46908c;
   --dark-green: #0a4346;
   --white: #fff;
-  --width: ;
+  --width: 100%;
   --box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -17,10 +17,10 @@ header {
   height: 70px;
   display: flex;
   position: fixed;
-  width: var(--width);
   margin: 0px;
   transition: 0.25s linear;
   justify-content: space-between;
+  width: 100%;
   position: fixed;
   z-index: 1;
 }
@@ -110,7 +110,7 @@ h3 {
 
 @media screen and (min-width: 250px) and (max-width: 667px) {
   header {
-    width: var(--width);
+    width: 100%;
   }
 
   header img {
