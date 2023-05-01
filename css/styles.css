@@ -206,8 +206,6 @@ h3 {
   background-color: var(--white);
   width: var(--width);
   max-width: var(--width);
-  height: auto;
-  flex-direction: column;
   box-sizing: var(--box-sizing);
   padding: 20px;
   box-shadow: var(--box-shadow);
@@ -218,6 +216,11 @@ h3 {
   margin-top: 10px;
   width: var(--width);
   box-shadow: var(--box-shadow);
+}
+
+.blog p {
+  height: 200px;
+  box-sizing: border-box;
 }
 
 /* mobile screen */
@@ -521,5 +524,22 @@ h3 {
 
   .footer-row-3 {
     flex: 2 2 auto;
+  }
+
+  /* blog posts page */
+  .blog-posts-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: var(--width);
+    max-width: var(--width);
+    box-sizing: var(--box-sizing);
+  }
+
+  .blog {
+    flex: 1 1 auto;
+    max-width: 30%;
+    height: 500px;
   }
 }
