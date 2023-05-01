@@ -26,16 +26,28 @@ function createBlogHTML(blog) {
 
   // blogpost title
   const title = document.createElement("h2");
-  title.innerText = blog.title.rendered;
+  title.innerHTML = blog.title.rendered;
   blogContent.append(title);
 
-  // blog content
-  for (let i = 0; i < blog.content.rendered.length; i++) {
-    const contentData = blog.content.rendered[i];
-    const content = document.createElement("content");
-    blogContent.append(content);
-    container.append(blogContent);
-  }
+  // blog img
+  // fetching each image with match(/src="([^"]+)"/) to extract the URL of the first img in the rendered content (chatGPT)
+  const img = document.createElement("img");
+  img.src = blog.content.rendered.match(/src="([^"]+)"/)[1];
+  blogContent.append(img);
+
+  // blog post date
+  const postDate = new Date(blog.date).toLocaleDateString();
+  blogContent.innerHTML = ` <h2>${blog.title.rendered}</div>
+                            <img src="${img.src}" alt=""></div>                            
+                           <h5>Published on ${postDate}</h5>
+                            `;
+
+  // blog description
+  const description = document.createElement("div");
+  description.innerHTML = blog.excerpt.rendered;
+  blogContent.append(description);
+
+  container.append(blogContent);
 }
 
 function createBlogsHTML(blogs) {
