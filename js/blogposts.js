@@ -33,7 +33,28 @@ function createBlogHTML(blog) {
   // fetching each image with match(/src="([^"]+)"/) to extract the URL of the first img in the rendered content (chatGPT)
   const img = document.createElement("img");
   img.src = blog.content.rendered.match(/src="([^"]+)"/)[1];
+  img.classList.add("blog-img");
   blogContent.append(img);
+
+  //   // full size img popup (chatGPT)
+  //   img.addEventListener("click", () => {
+  //     const fullImg = document.querySelector(".full-img");
+  //     fullImg.src = img.src;
+  //     const popup = document.querySelector(".full-img-container");
+  //     popup.style.display = "block";
+  //   });
+
+  //   //close img popup (chatGPT)
+  //   const popup = document.querySelector(".full-img-container");
+  //   const closeImgBtn = document.querySelector(".close-btn");
+  //   popup.addEventListener("click", (event) => {
+  //     if (event.target == popup) {
+  //         popup.style.display = "none";
+  //     }
+  //     closeImgBtn.addEventListener("click", () => {
+  //         popup.style.display = "none";
+  //     });
+  //   })
 
   // blog post date
   const postDate = new Date(blog.date).toLocaleDateString();
