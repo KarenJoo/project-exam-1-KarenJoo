@@ -212,15 +212,20 @@ h3 {
   max-width: var(--width);
   box-sizing: var(--box-sizing);
   padding: 20px;
-  height: auto;
   box-shadow: var(--box-shadow);
   margin-bottom: 20px;
 }
 
+.blog a {
+  text-decoration: none;
+  color: #000;
+}
+
 .blog img {
   margin-top: 10px;
-  width: 350px;
-  object-position: bottom;
+  max-width: 300px;
+  width: var(--width);
+  object-position: bottom 10%;
   object-fit: cover;
   box-shadow: var(--box-shadow);
   height: 250px;
@@ -230,6 +235,12 @@ h3 {
   margin-bottom: 10px;
 }
 
+.blog p {
+  max-width: var(--width);
+  height: auto;
+  box-sizing: var(--box-sizing);
+  width: 450px;
+}
 
 /* mobile screen */
 
@@ -548,6 +559,6 @@ h3 {
   .blog {
     flex: 1 1 auto;
     max-width: 30%;
-    height: 500px;
+    height: 600px;
   }
 }

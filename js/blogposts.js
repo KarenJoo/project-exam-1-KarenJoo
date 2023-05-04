@@ -36,21 +36,14 @@ function createBlogHTML(blog) {
   img.classList.add("blog-img");
   blogContent.append(img);
 
-  
-
-
   // blog post date
   const postDate = new Date(blog.date).toLocaleDateString();
-  blogContent.innerHTML = ` <h2>${blog.title.rendered}</div>
-                            <img src="${img.src}" alt=""></div>                            
-                           <h5>Published on ${postDate}</h5>
+  blogContent.innerHTML = ` 
+                            <h2><a href="specific-blog.html?id=${blog.id}">${blog.title.rendered}</h2>
+                            <img src="${img.src}" alt="">                            
+                            <h5>Published on ${postDate}</h5>
+                            <p>${blog.excerpt.rendered}</p>
                             `;
-
-  // blog description
-  const description = document.createElement("p");
-  description.innerHTML = blog.excerpt.rendered;
-  blogContent.append(description);
-
   container.append(blogContent);
 }
 
