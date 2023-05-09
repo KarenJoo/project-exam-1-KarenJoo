@@ -1,4 +1,4 @@
-const apiBase = "http://health-hub.local";
+const apiBase = "http://health-hub.karenjo.no";
 const blogPosts = "/wp-json/wp/v2/posts";
 const fullBlogURL = apiBase + blogPosts;
 const blogPostsContainer = document.querySelector(".blog-container");
@@ -44,6 +44,8 @@ function createBlogHTML(blog) {
                             <h5>Published on ${postDate}</h5>
                             <p>${blog.excerpt.rendered}</p>
                             `;
+
+                        
   container.append(blogContent);
 }
 
@@ -54,9 +56,45 @@ function createBlogsHTML(blogs) {
   }
 }
 
+
+
 async function blogPage() {
   const blogs = await getBlogPosts();
-  createBlogsHTML(blogs);
-}
+const numPostsToFetch = 10;
+
+await createBlogsHTML(blogs.slice(0, numPostsToFetch));
+
+const viewMoreBtn = document.getElementById("view-more-btn");
+
+viewMoreBtn.addEventListener("click", async function(event) {
+  event.preventDefault();
+
+  const startIndex = numPostsToFetch;
+  const endIndex = startIndex + numPostsToFetch;
+
+
+  if(startIndex < blogs.length) {
+    const newBlogs = blogs.slice(startIndex, endIndex);
+    const newBlogContainer = document.createElement("div");
+
+    for (let i = 0; i < newBlogs.length; i++) {
+      const blog = newBlogs[i];
+      const blogContent = await createBlogHTML(blog);
+      newBlogContainer.append(blogContent);
+    }
+
+    blogPostsContainer.append(newBlogContainer);
+    numPostsToFetch += 10;
+
+    if(numPostsToFetch >= blogs.length) {
+      viewMoreBtn.style.display = "none";
+    }
+  }
+});
+
+/*   createBlogsHTML(blogs);
+ */}
 
 blogPage();
+
+

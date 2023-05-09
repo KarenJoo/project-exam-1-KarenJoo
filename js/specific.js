@@ -1,6 +1,6 @@
 const specificContainer = document.querySelector(".specific-blog-container");
 
-const postURL = "http://health-hub.local/wp-json/wp/v2/posts?_embed";
+const postURL = "http://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed";
 
 const queryString = document.location.search;
 
