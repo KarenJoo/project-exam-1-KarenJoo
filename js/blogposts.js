@@ -2,12 +2,16 @@ const apiBase = "http://health-hub.karenjo.no";
 const blogPosts = "/wp-json/wp/v2/posts";
 const fullBlogURL = apiBase + blogPosts;
 const blogPostsContainer = document.querySelector(".blog-container");
+let numDisplayed = 10;
 
 async function getBlogPosts() {
   try {
     const response = await fetch(fullBlogURL);
     const blogs = await response.json();
     console.log(blogs);
+
+    // display the 10 first blogposts
+    displayBlogs(0, numDisplayed, blogs);
 
     return blogs;
   } catch (error) {
@@ -45,56 +49,33 @@ function createBlogHTML(blog) {
                             <p>${blog.excerpt.rendered}</p>
                             `;
 
-                        
   container.append(blogContent);
 }
 
-function createBlogsHTML(blogs) {
-  for (let i = 0; i < blogs.length; i++) {
+// display the rest of the blogposts
+function displayBlogs(startIndex, numToDisplay, blogs) {
+  for (
+    let i = startIndex;
+    i < startIndex + numToDisplay && i < blogs.length;
+    i++
+  ) {
     const blog = blogs[i];
     createBlogHTML(blog);
   }
 }
 
+/* let allBlogs = [];
 
+getBlogPosts().then(blogs => {
+allBlogs = blogs;
+displayBlogs(allBlogs.slice(0,10)); 
+}); */
 
-async function blogPage() {
-  const blogs = await getBlogPosts();
-const numPostsToFetch = 10;
-
-await createBlogsHTML(blogs.slice(0, numPostsToFetch));
-
+// addeventlistner for clickable button to view more posts
 const viewMoreBtn = document.getElementById("view-more-btn");
 
-viewMoreBtn.addEventListener("click", async function(event) {
-  event.preventDefault();
-
-  const startIndex = numPostsToFetch;
-  const endIndex = startIndex + numPostsToFetch;
-
-
-  if(startIndex < blogs.length) {
-    const newBlogs = blogs.slice(startIndex, endIndex);
-    const newBlogContainer = document.createElement("div");
-
-    for (let i = 0; i < newBlogs.length; i++) {
-      const blog = newBlogs[i];
-      const blogContent = await createBlogHTML(blog);
-      newBlogContainer.append(blogContent);
-    }
-
-    blogPostsContainer.append(newBlogContainer);
-    numPostsToFetch += 10;
-
-    if(numPostsToFetch >= blogs.length) {
-      viewMoreBtn.style.display = "none";
-    }
-  }
+viewMoreBtn.addEventListener("click", async () => {
+  numDisplayed += 2;
+  const moreBlogs = await getBlogPosts();
+  displayBlogs(numDisplayed - 2, 2, moreBlogs);
 });
-
-/*   createBlogsHTML(blogs);
- */}
-
-blogPage();
-
-
