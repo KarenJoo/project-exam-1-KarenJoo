@@ -2,16 +2,19 @@ const apiBase = "http://health-hub.karenjo.no";
 const blogPosts = "/wp-json/wp/v2/posts";
 const fullBlogURL = apiBase + blogPosts;
 const blogPostsContainer = document.querySelector(".blog-container");
-let numDisplayed = 10;
 
-async function getBlogPosts() {
+async function getBlogPosts(pageNumber = 1, postsPerPage = 10) {
   try {
-    const response = await fetch(fullBlogURL);
+    const response = await fetch(
+      `${fullBlogURL}?per_page=${postsPerPage}&page=${pageNumber}`
+    );
     const blogs = await response.json();
     console.log(blogs);
 
     // display the 10 first blogposts
-    displayBlogs(0, numDisplayed, blogs);
+    const startIndex = (pageNumber - 1) * postsPerPage;
+    const endIndex = startIndex + postsPerPage;
+    displayBlogs(startIndex, endIndex, blogs);
 
     return blogs;
   } catch (error) {
@@ -52,7 +55,7 @@ function createBlogHTML(blog) {
   container.append(blogContent);
 }
 
-// display the rest of the blogposts
+// display the rest of the blogposts (chatGPT)
 function displayBlogs(startIndex, numToDisplay, blogs) {
   for (
     let i = startIndex;
@@ -64,18 +67,11 @@ function displayBlogs(startIndex, numToDisplay, blogs) {
   }
 }
 
-/* let allBlogs = [];
-
-getBlogPosts().then(blogs => {
-allBlogs = blogs;
-displayBlogs(allBlogs.slice(0,10)); 
-}); */
-
-// addeventlistner for clickable button to view more posts
+// addeventlistner for clickable button to view more posts (chatGPT)
 const viewMoreBtn = document.getElementById("view-more-btn");
+let currentPage = 1;
 
 viewMoreBtn.addEventListener("click", async () => {
-  numDisplayed += 2;
-  const moreBlogs = await getBlogPosts();
-  displayBlogs(numDisplayed - 2, 2, moreBlogs);
+  currentPage++;
+  await getBlogPosts(currentPage, 2);
 });
