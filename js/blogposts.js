@@ -19,7 +19,7 @@ async function getBlogPosts(pageNumber = 1, postsPerPage = 10) {
     return blogs;
   } catch (error) {
     console.log(error);
-    blogPostsContainer.textContent= ("An error occurred", error);
+    blogPostsContainer.textContent = ("An error occurred", error);
   }
 }
 
@@ -54,7 +54,6 @@ function createBlogHTML(blog) {
 
   container.append(blogContent);
 }
-
 
 // display the rest of the blogposts (chatGPT)
 function displayBlogs(startIndex, numToDisplay, blogs) {
