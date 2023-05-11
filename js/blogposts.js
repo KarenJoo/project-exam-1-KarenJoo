@@ -1,7 +1,7 @@
 const apiBase = "http://health-hub.karenjo.no";
 const blogPosts = "/wp-json/wp/v2/posts";
 const fullBlogURL = apiBase + blogPosts;
-const blogPostsContainer = document.querySelector(".blog-container");
+const blogPostsContainer = document.querySelector(".blog-posts-container");
 
 async function getBlogPosts(pageNumber = 1, postsPerPage = 10) {
   try {
@@ -19,7 +19,7 @@ async function getBlogPosts(pageNumber = 1, postsPerPage = 10) {
     return blogs;
   } catch (error) {
     console.log(error);
-    blogPostsContainer.innerHTML = ("An error occurred", error);
+    blogPostsContainer.textContent= ("An error occurred", error);
   }
 }
 
@@ -54,6 +54,7 @@ function createBlogHTML(blog) {
 
   container.append(blogContent);
 }
+
 
 // display the rest of the blogposts (chatGPT)
 function displayBlogs(startIndex, numToDisplay, blogs) {
