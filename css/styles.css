@@ -86,7 +86,6 @@ h3 {
 
 /* latest post content */
 .slider-container {
-  background-color: #888;
   margin: 0px auto;
   width: 90%;
   height: 70%;
@@ -122,15 +121,21 @@ h3 {
   cursor: pointer;
 }
 
-.post-item {
-  width: 33.33%;
-  padding: 20px;
-  box-sizing: border-box;
+.slider-content {
+  height: 400px;
+  width: 300px;
+  margin: 20px;
+  box-shadow: var(--box-shadow);
 }
 
-.post-item img {
-  max-width: 100%;
-  height: auto;
+.slider-content h2 {
+  font-size: 15px;
+}
+
+.slider-content a  {
+  text-decoration: none;
+  color: #000;
+
 }
 
 /* section flex containers */
