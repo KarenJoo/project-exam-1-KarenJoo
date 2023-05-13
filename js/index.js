@@ -4,11 +4,14 @@ const sliderContainer = document.querySelector(".slides");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 let counter = 0;
+let postsData;
 
 // fetch the 6 latest blogposts
 fetch("https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&per_page=6")
   .then((response) => response.json())
   .then((posts) => {
+    // storing the posts data in a variable to control the length of the posts arrays and the next btn
+    postsData = posts;
 
     posts.slice(0, 3).forEach((post) => {
       const postElement = document.createElement("div");
@@ -24,6 +27,13 @@ fetch("https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&per_page=6")
     nextBtn.addEventListener("click", () => {
       counter += 3;
       sliderContainer.innerHTML = "";
+
+      // check if there are more blogposts to display
+      if (counter >= postsData.length - 3) {
+        nextBtn.disabled = true;
+      }
+
+      // display the next 3 blogposts
       posts.slice(counter, counter + 3).forEach((post) => {
         const postElement = document.createElement("div");
         postElement.innerHTML = `<h2>${post.title.rendered}</h2>
@@ -32,6 +42,9 @@ fetch("https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&per_page=6")
       `;
         sliderContainer.append(postElement);
       });
+
+      // enable the previous btn
+      prevBtn.disabled = false;
     });
 
     // adding event listner to the prev btn
@@ -39,6 +52,13 @@ fetch("https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&per_page=6")
     prevBtn.addEventListener("click", () => {
       counter -= 3;
       sliderContainer.innerHTML = "";
+
+      // checking if there are prev blogposts to display
+      if (counter <= 0) {
+        prevBtn.disabled = true;
+      }
+
+      // display the rev 3 blogposts
       posts.slice(counter, counter + 3).forEach((post) => {
         const postElement = document.createElement("div");
         postElement.innerHTML = `
@@ -48,7 +68,11 @@ fetch("https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&per_page=6")
       `;
         sliderContainer.appendChild(postElement);
       });
+
+      nextBtn.disabled = false;
     });
+    // enable the next btn
+    prevBtn.disabled = true;
   });
 
 //     posts.forEach((post, index) => {
