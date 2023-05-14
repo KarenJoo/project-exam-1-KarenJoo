@@ -13,6 +13,9 @@ fetch("https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&per_page=6")
     // storing the posts data in a variable to control the length of the posts arrays and the next btn
     postsData = posts;
 
+    // loader
+    sliderContainer.innerHTML = " ";
+
     posts.slice(0, 3).forEach((post) => {
       const postElement = document.createElement("div");
       postElement.classList.add("slider-content");
@@ -26,6 +29,7 @@ fetch("https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&per_page=6")
       postElement.append(postLink);
       sliderContainer.append(postElement);
     });
+ 
 
     // adding event listner to next button, displaying 3 blogposts
     const nextBtn = document.getElementById("nextBtn");

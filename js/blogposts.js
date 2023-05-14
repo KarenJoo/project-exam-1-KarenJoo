@@ -11,6 +11,9 @@ async function getBlogPosts(pageNumber = 1, postsPerPage = 10) {
     const blogs = await response.json();
     console.log(blogs);
 
+    // loader
+    blogPostsContainer.innerHTML = "";
+
     // display the 10 first blogposts
     const startIndex = (pageNumber - 1) * postsPerPage;
     const endIndex = startIndex + postsPerPage;

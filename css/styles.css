@@ -171,6 +171,29 @@ h3 {
   background-color: var(--white);
 }
 
+/* Loader */
+.loader {
+  box-sizing: border-box;
+  border: 16px solid #3e827e11;
+  border-top: 16px solid #46908c;
+  border-radius: 50%;
+  max-width: 300px;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
 /* footer */
 .blog-footer {
   background-color: var(--dark-green);
