@@ -3,7 +3,8 @@ const blogPosts = "/wp-json/wp/v2/posts";
 const fullBlogURL = apiBase + blogPosts;
 const blogPostsContainer = document.querySelector(".blog-posts-container");
 
-async function getBlogPosts(pageNumber = 1, postsPerPage = 10) {
+// fetching all blogposts
+async function getBlogPosts(pageNumber = 1, postsPerPage = 13) {
   try {
     const response = await fetch(
       `${fullBlogURL}?per_page=${postsPerPage}&page=${pageNumber}`
@@ -13,6 +14,9 @@ async function getBlogPosts(pageNumber = 1, postsPerPage = 10) {
 
     // loader
     blogPostsContainer.innerHTML = "";
+
+    const postsCount = document.getElementById("blogs-count");
+    const postsTotal = document.getElementById("blogs-total");
 
     // display the 10 first blogposts
     const startIndex = (pageNumber - 1) * postsPerPage;
@@ -71,10 +75,3 @@ function displayBlogs(startIndex, numToDisplay, blogs) {
 }
 
 // addeventlistner for clickable button to view more posts (chatGPT)
-const viewMoreBtn = document.getElementById("view-more-btn");
-let currentPage = 1;
-
-viewMoreBtn.addEventListener("click", async () => {
-  currentPage++;
-  await getBlogPosts(currentPage, 2);
-});
