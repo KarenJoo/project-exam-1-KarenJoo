@@ -2,9 +2,12 @@ const apiBase = "http://health-hub.karenjo.no";
 const blogPosts = "/wp-json/wp/v2/posts";
 const fullBlogURL = apiBase + blogPosts;
 const blogPostsContainer = document.querySelector(".blog-posts-container");
+let pageNumber = 1;
+let postsPerPage = 10;
+let blogs = [];
 
-// fetching all blogposts
-async function getBlogPosts(pageNumber = 1, postsPerPage = 13) {
+// fetch all blogposts
+async function getBlogPosts() {
   try {
     const response = await fetch(
       `${fullBlogURL}?per_page=${postsPerPage}&page=${pageNumber}`
@@ -15,15 +18,7 @@ async function getBlogPosts(pageNumber = 1, postsPerPage = 13) {
     // loader
     blogPostsContainer.innerHTML = "";
 
-    const postsCount = document.getElementById("blogs-count");
-    const postsTotal = document.getElementById("blogs-total");
-
-    // display the 10 first blogposts
-    const startIndex = (pageNumber - 1) * postsPerPage;
-    const endIndex = startIndex + postsPerPage;
-    displayBlogs(startIndex, endIndex, blogs);
-
-    return blogs;
+    displayBlogs(0, postsPerPage, blogs);
   } catch (error) {
     console.log(error);
     blogPostsContainer.textContent = ("An error occurred", error);
@@ -63,6 +58,13 @@ function createBlogHTML(blog) {
 }
 
 // display the rest of the blogposts (chatGPT)
+
+const viewMoreBtn = document.querySelector(".view-more-btn");
+viewMoreBtn.addEventListener("click", () => {
+  pageNumber++;
+  getBlogPosts();
+});
+
 function displayBlogs(startIndex, numToDisplay, blogs) {
   for (
     let i = startIndex;
