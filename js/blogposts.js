@@ -4,7 +4,6 @@ const fullBlogURL = apiBase + blogPosts;
 const blogPostsContainer = document.querySelector(".blog-posts-container");
 let pageNumber = 1;
 let postsPerPage = 10;
-let blogs = [];
 
 // fetch all blogposts
 async function getBlogPosts() {
@@ -15,18 +14,10 @@ async function getBlogPosts() {
     const blogs = await response.json();
     console.log(blogs);
 
-    // loader
-
-    blogs.forEach((blog) => {
-      if (!blogs.includes(blog)) {
-        blogs.push(blog);
-      }
-    });
-
     displayBlogs(0, postsPerPage, blogs);
   } catch (error) {
     console.log(error);
-    blogPostsContainer.textContent = ("An error occurred", error);
+    blogPostsContainer.textContent = `An error occurred", ${error}`;
   }
 }
 
@@ -62,14 +53,15 @@ function createBlogHTML(blog) {
   container.append(blogContent);
 }
 
-// display the rest of the blogposts (chatGPT)
-
+// view button displays all fetched blogposts (chatGPT)
+// event listener added with a click event, increases the value of pagenr
 const viewMoreBtn = document.querySelector(".view-more-btn");
 viewMoreBtn.addEventListener("click", () => {
   pageNumber++;
   getBlogPosts();
 });
 
+// for loop to display the specified nr of blogposts on the page
 function displayBlogs(startIndex, numToDisplay, blogs) {
   for (
     let i = startIndex;
@@ -80,5 +72,3 @@ function displayBlogs(startIndex, numToDisplay, blogs) {
     createBlogHTML(blog);
   }
 }
-
-// addeventlistner for clickable button to view more posts (chatGPT)
