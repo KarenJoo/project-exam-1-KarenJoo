@@ -16,7 +16,12 @@ async function getBlogPosts() {
     console.log(blogs);
 
     // loader
-    blogPostsContainer.innerHTML = "";
+
+    blogs.forEach((blog) => {
+      if (!blogs.includes(blog)) {
+        blogs.push(blog);
+      }
+    });
 
     displayBlogs(0, postsPerPage, blogs);
   } catch (error) {
