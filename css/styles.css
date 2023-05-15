@@ -110,6 +110,7 @@ h3 {
   margin: 10px auto;
 }
 
+.form-btn,
 .view-more-btn,
 .slider-btns button {
   margin: 0 10px;
@@ -234,16 +235,6 @@ input {
   font-size: 16px;
 }
 
-button {
-  background: rgb(80, 93, 70);
-  border: none;
-  width: 200px;
-  padding: 1rem;
-  color: white;
-  margin-top: 10px;
-  cursor: pointer;
-  border-radius: 0.2rem;
-}
 textarea {
   padding: 0.5rem;
   border-radius: 0.3rem;
@@ -257,6 +248,23 @@ textarea {
 
 .message-valid {
   color: green;
+}
+
+.message.error {
+  border-color: red;
+  color: red;
+}
+
+.message.success {
+  border-color: green;
+  color: green;
+}
+
+.error {
+  border: 1px solid darkred;
+  padding: 1rem;
+  color: darkred;
+  background: rgba(255, 0, 0, 0.1);
 }
 
 /* footer */
@@ -430,6 +438,7 @@ textarea {
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
+.form-btn,
 .view-more-btn {
   background-color: var(--white);
   color: var(--dark-green);
@@ -448,6 +457,11 @@ textarea {
 
 .view-more-btn[disabled] {
   background-color: #eaeaea !important;
+}
+
+.form-btn {
+  background-color: var(--light-green);
+  color: var(--white);
 }
 
 /* mobile screen */

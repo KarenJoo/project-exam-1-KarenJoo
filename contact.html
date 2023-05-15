@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="The blog page of Health Hub" />
     <link href="/css/styles.css" rel="stylesheet" />
-    <script src="/js/blogposts.js" defer type="module"></script>
-    <title>Health Hub | Blog site</title>
+    <script src="/js/contact.js" defer type="module"></script>
+    <title>Health Hub | Contact page</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Khand:wght@600&display=swap");
     </style>
@@ -56,23 +56,12 @@
         <form id="contactForm">
             <div>
               <label>
-                <p>First name (required)</p>
-                <input name="firstName" id="firstName" placeholder="First name" />
+                <p>Name (minimum 5 characters)</p>
+                <input name="firstName" id="firstName" placeholder="name" />
               </label>
               <div class="message-valid" id="firstNameValid"></div>
               <div class="form-error" id="firstNameError">
-                <p>Please enter your first name</p>
-              </div>
-            </div>
-    
-            <div>
-              <label>
-                <p>Last name (minimum 4 characters)</p>
-                <input name="lastName" id="lastName" placeholder="Last name" />
-              </label>
-              <div class="message-valid" id="lastNameValid"></div>
-              <div class="form-error" id="lastNameError">
-                <p>Your last name must be at least 4 characters</p>
+                <p>Your name must be at least 5 characters</p>
               </div>
             </div>
     
@@ -83,22 +72,32 @@
               </label>
               <div class="message-valid" id="emailValid"></div>
               <div class="form-error" id="emailError">
-                <p>Please enter a valid email adress</p>
+                <p>Please enter a valid email address</p>
               </div>      
               </div>  
-      
+
+              <div>
+                <label>
+                  <p>Subject (minimum 15 characters)</p>
+                  <input name="subject" id="subject" placeholder="Subject" />
+                </label>
+                <div class="message-valid" id="subjectValid"></div>
+                <div class="form-error" id="subjectError">
+                  <p>The subject must be at least 15 characters</p>
+                </div>
+              </div>
               <form>
                     <p>Message</p>
                     <textarea placeholder="Type a message" id="message"></textarea>
                     <div class="message-valid" id="messageValid"></div>
                     <div class="form-error" id="messageError">
-                      Your message must be a minimum of 10 characters
+                      Your message must be a minimum of 25 characters
                     </div>                
                     <div class="character-count">Character count: <span>0</span></div>
     
             
     
-            <button type="submit">Send</button>
+            <button type="submit" class="form-btn">Send</button>
           </form>
       </div>
 </div>
