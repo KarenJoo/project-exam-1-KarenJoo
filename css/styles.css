@@ -197,6 +197,68 @@ h3 {
   }
 }
 
+/* Conctact form */
+.contact-container {
+  max-width: 500px;
+  display: flex;
+  position: relative;
+  height: auto;
+  padding: 20px;
+  padding-bottom: 150px;
+  margin: 0 auto;
+}
+
+p {
+  margin-bottom: 0px;
+}
+form {
+  padding: 2em;
+  height: auto;
+  background: white;
+  border-radius: 1rem;
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+}
+
+.form-error {
+  display: none;
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+
+input {
+  width: 400px;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  background: rgb(80, 93, 70);
+  border: none;
+  width: 200px;
+  padding: 1rem;
+  color: white;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 0.2rem;
+}
+textarea {
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  border: 1px solid grey;
+  width: 400px;
+}
+
+.character-count {
+  margin: 1rem 0;
+}
+
+.message-valid {
+  color: green;
+}
+
 /* footer */
 .blog-footer {
   background-color: var(--dark-green);
@@ -376,8 +438,6 @@ h3 {
   box-sizing: border-box;
   height: 50px;
   width: 200px;
- 
-
 }
 
 .view-more-btn:not([disabled]):hover {
@@ -467,7 +527,7 @@ h3 {
   #burger-menu:hover {
     transform: rotate(90deg);
   }
-  /* Burger menu cross effect by @webdoktoru (IG) */
+  /* Burger menu cross effect by @webdoktoru (IG) / web-doctoru.com */
   .bar {
     height: 3px;
     width: 30px;

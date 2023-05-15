@@ -31,7 +31,10 @@ function createBlogHTML(blog) {
 
   // blogpost title
   const title = document.createElement("h2");
-  title.innerHTML = blog.title.rendered;
+  const blogLink = document.createElement("a");
+  blogLink.href = `specific-blog.html?id=${blog.id}`;
+  blogLink.textContent = blog.title.rendered;
+  title.append(blogLink);
   blogContent.append(title);
 
   // blog img
