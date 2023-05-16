@@ -469,13 +469,15 @@ textarea {
 @media screen and (min-width: 250px) and (max-width: 667px) {
   header {
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   header img {
     height: 50px;
     width: 250px;
-    padding-top: 15px;
-    margin: 0 auto;
+    padding-top: 5px;
   }
 
   nav ul li {
@@ -486,9 +488,9 @@ textarea {
 
   .links ul {
     background-color: #0a4346ac;
-    margin-top: 38px;
-    height: 190px;
-    width: 200px;
+    margin-top: 20px;
+    height: 160px;
+    width: 100px;
     align-items: center;
   }
 
@@ -496,6 +498,7 @@ textarea {
     display: flex;
     flex-direction: column;
     width: 120px;
+    margin-left: 65px;
   }
 
   .nav-links {
@@ -520,14 +523,14 @@ textarea {
     display: none;
   }
 
-  #burger-check:hover ~ .links,
+  #burger-check:checked ~ .links,
   .links ul li a {
     display: block;
   }
 
   #burger-container {
     display: block;
-    margin-left: auto;
+    margin-left: 50px;
     height: 15px;
     width: 60px;
   }
@@ -538,7 +541,7 @@ textarea {
     cursor: pointer;
   }
 
-  #burger-menu:hover {
+  #burger-menu:checked {
     transform: rotate(90deg);
   }
   /* Burger menu cross effect by @webdoktoru (IG) / web-doctoru.com */
@@ -573,7 +576,6 @@ textarea {
     object-fit: cover;
     width: 100%;
   }
-
   .hero-img {
     width: 100%;
     height: 400px;

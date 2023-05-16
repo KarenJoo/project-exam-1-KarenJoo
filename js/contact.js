@@ -5,7 +5,7 @@ const form = document.querySelector("#contactForm");
 form.addEventListener("submit", validateForm);
 
 function checkLength(value, len) {
-  if (value.trim().len > len) {
+  if (value.trim().length > len) {
     return true;
   } else {
     return false;
