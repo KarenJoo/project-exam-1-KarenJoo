@@ -21,6 +21,7 @@ fetch("https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&per_page=6")
       // link each blogpost to display in specific-blog.html with it's ID
       const postLink = document.createElement("a");
       postLink.href = `specific-blog.html?id=${post.id}`;
+
       postLink.innerHTML = `<h2>${post.title.rendered}</h2>
     <img src="${post._embedded["wp:featuredmedia"][0].source_url}" alt="${post.title.rendered}">
     <p>${post.excerpt.rendered}</p>
@@ -45,10 +46,15 @@ fetch("https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&per_page=6")
         const postElement = document.createElement("div");
         postElement.classList.add("slider-content");
 
-        postElement.innerHTML = `<h2>${post.title.rendered}</h2>
+        const postLink = document.createElement("a");
+        postLink.href = `specific-blog.html?id=${post.id}`;
+
+        postLink.innerHTML = `<h2>${post.title.rendered}</h2>
         <img src="${post._embedded["wp:featuredmedia"][0].source_url}" alt="${post.title.rendered}">
         <p>${post.excerpt.rendered}</p>
       `;
+        postElement.append(postLink);
+
         sliderContainer.append(postElement);
       });
 
@@ -67,16 +73,22 @@ fetch("https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&per_page=6")
         prevBtn.disabled = true;
       }
 
-      // display the rev 3 blogposts
+      // display the prev 3 blogposts
       posts.slice(counter, counter + 3).forEach((post) => {
         const postElement = document.createElement("div");
         postElement.classList.add("slider-content");
-        postElement.innerHTML = `
+
+        const postLink = document.createElement("a");
+        postLink.href = `specific-blog.html?id=${post.id}`;
+
+        postLink.innerHTML = `
         <h2>${post.title.rendered}</h2>
         <img src="${post._embedded["wp:featuredmedia"][0].source_url}" alt="${post.title.rendered}">
         <p>${post.excerpt.rendered}</p>
       `;
-        sliderContainer.appendChild(postElement);
+
+        postElement.append(postLink);
+        sliderContainer.append(postElement);
       });
 
       nextBtn.disabled = false;

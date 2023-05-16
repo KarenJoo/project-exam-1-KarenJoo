@@ -109,12 +109,6 @@ h3 {
   width: 200px;
 }
 
-.slider-btns {
-  display: flex;
-  justify-content: center;
-  margin: 10px auto;
-}
-
 .form-btn,
 .view-more-btn,
 .slider-btns button {
@@ -130,6 +124,11 @@ h3 {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.15rem;
+}
+.slider-btns {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
 }
 
 .slider-content {
@@ -314,7 +313,6 @@ textarea {
   height: auto;
   margin-left: 20px;
 }
-
 
 .footer-row-2 {
   margin-top: 70px;
