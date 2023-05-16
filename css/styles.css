@@ -474,10 +474,14 @@ textarea {
     align-items: center;
   }
 
+  header a {
+    display: inline-block;
+  }
+
   header img {
     height: 50px;
     width: 250px;
-    padding-top: 5px;
+    padding-top: 20px;
   }
 
   nav ul li {
@@ -488,10 +492,10 @@ textarea {
 
   .links ul {
     background-color: #0a4346ac;
-    margin-top: 20px;
+    margin-top: 28px;
     height: 160px;
-    width: 100px;
-    align-items: center;
+    width: 120px;
+    align-items: end;
   }
 
   .nav-container {
@@ -501,10 +505,12 @@ textarea {
     margin-left: 65px;
   }
 
+  /* adjust burger menu icon */
   .nav-links {
     height: 10px;
     width: 100px;
-    padding-top: 35px;
+    padding-top: 20px;
+    margin-left: 50px;
   }
 
   .links ul {
