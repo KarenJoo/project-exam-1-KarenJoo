@@ -39,19 +39,33 @@ function createBlogHTML(blog) {
 
   // blog img
   // fetching each image with match(/src="([^"]+)"/) to extract the URL of the first img in the rendered content (chatGPT)
-  const img = document.createElement("img");
-  img.src = blog.content.rendered.match(/src="([^"]+)"/)[1];
-  img.classList.add("blog-img");
-  blogContent.append(img);
+  const blogContentContainer = document.createElement("div");
+
+  // creating imgContainer to display the specific img from the api
+  const imgContainer = document.createElement("div");
+  imgContainer.innerHTML = blog.content.rendered;
+  const img = imgContainer.querySelector("img");
+  const imgSrcMatch = blog.content.rendered.match(
+    /<img[^>]+src=["']([^"']+)["']/i
+  );
+  if (img) {
+    img.src = img.src;
+    img.alt = blog.title.rendered;
+    img.classList.add("blog-img");
+    blogContent.append(img);
+  } else {
+    console.log("Image source not found:", blog);
+  }
 
   // blog post date
   const postDate = new Date(blog.date).toLocaleDateString();
-  blogContent.innerHTML = ` 
-                            <h2><a href="specific-blog.html?id=${blog.id}">${blog.title.rendered}</h2>
-                            <img src="${img.src}" alt="">                            
-                            <h5>Published on ${postDate}</h5>
-                            <p>${blog.excerpt.rendered}</p>
-                            `;
+  const date = document.createElement("h5");
+  date.textContent = `Published on ${postDate}`;
+  blogContent.append(date);
+
+  const excerpt = document.createElement("p");
+  excerpt.innerHTML = blog.excerpt.rendered;
+  blogContent.append(excerpt);
 
   container.append(blogContent);
 }

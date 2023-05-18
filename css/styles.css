@@ -520,7 +520,6 @@ textarea {
     display: flex;
     flex-direction: column;
     width: 120px;
-    margin-left: 65px;
   }
 
   /* adjust burger menu icon */
