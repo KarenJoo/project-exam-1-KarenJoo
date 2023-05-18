@@ -606,13 +606,28 @@ textarea {
     object-fit: cover;
   }
 
+  /* lates content */
+
+  .slides {
+    display: flex;
+    flex-direction: column;
+    height: 960px;
+    margin-bottom: 20px;
+  }
+
+  .slider-content {
+    width: 200px;
+    height: auto;
+    margin: 10px auto;
+  }
+
   /* topic content */
 
   .topic-logo img {
     height: auto;
     width: 70%;
-    padding-left: 70px;
-    margin-top: 30px;
+    padding-left: 100px;
+    margin-top: 600px;
   }
 
   /* section flex containers */
