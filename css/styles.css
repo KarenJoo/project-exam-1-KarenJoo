@@ -191,6 +191,8 @@ h3 {
   height: 300px;
 }
 
+.topic,
+.topic-content,
 .health-flex,
 .lifestyle-flex {
   height: 350px;
