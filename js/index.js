@@ -1,5 +1,19 @@
+// Fetch and display the latest posts in the "latest-container"
+fetchAndDisplayBlogs(".latest-container", "", 6);
+
+// fetch and display categories 
+
+// Fetch and display the topic of the month posts in the "topic-container"
+fetchAndDisplayBlogs(".topic-container", 17, 1);
+
+// Fetch and display the health posts in the "health-container"
+fetchAndDisplayBlogs(".health-container", 22, 3);
+
+// Fetch and display the lifestyle posts in the "lifestyle-container"
+fetchAndDisplayBlogs(".lifestyle-container", 23, 3);
+
 // blog post slider code with help from chatGPT
-function fetchAndDisplayBlogs(containerElement, limit) {
+function fetchAndDisplayBlogs(containerElement, category, limit) {
   const container = document.querySelector(containerElement);
   const sliderContainer = container.querySelector(".slides");
   const prevBtn = document.getElementById("prevBtn");
@@ -70,11 +84,35 @@ function fetchAndDisplayBlogs(containerElement, limit) {
       // enable the next btn
       prevBtn.disabled = true;
     });
+
+    if (category) {
+      fetchAndDisplayCategoryBlogs(containerElement, category, limit)
+    }
 }
+
+// fetch and display category blog posts in "topic-container" (chatGPT)
+function fetchAndDisplayCategoryBlogs(containerElement, category, limit) {
+  const container = document.querySelector(containerElement);
+  const contentContainer = container.querySelector(".topic-content");
+
+  const topicAPI = `https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&categories=22&per_page=100`;
+
+  fetch(topicAPI)
+  .then((response) => response.json())
+  .then((posts) => {
+    contentContainer.innerHTML = "";
+
+    posts.forEach((post) => {
+const postElement = createPostElement(post);
+contentContainer.append(postElement);
+    });
+  });
+}
+
 // function to create a post element
 function createPostElement(post) {
   const postElement = document.createElement("div");
-  postElement.classList.add("slider-content");
+  postElement.classList.add("latest-blogpost");
 
   const postLink = document.createElement("a");
   postLink.href = `specific-blog.html?id=${post.id}`;
@@ -87,16 +125,8 @@ function createPostElement(post) {
 
   postElement.append(postLink);
 
+  // style the single topic-div
   return postElement;
 }
-// Fetch and display the latest posts in the "latest-container"
-fetchAndDisplayBlogs(".latest-container", "", 6);
 
-// Fetch and display the topic of the month posts in the "topic-container"
-fetchAndDisplayBlogs(".topic-container", "topic", 3);
 
-// Fetch and display the health posts in the "health-container"
-fetchAndDisplayBlogs(".health-container", "health", 3);
-
-// Fetch and display the lifestyle posts in the "lifestyle-container"
-fetchAndDisplayBlogs(".lifestyle-container", "lifestyle", 3);
