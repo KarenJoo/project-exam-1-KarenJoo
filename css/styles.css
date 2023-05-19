@@ -131,6 +131,11 @@ h3 {
   margin: 10px auto;
 }
 
+.slider-btns button {
+  background-color: var(--white);
+  color: var(--dark-green);
+}
+
 .slider-content {
   height: auto;
   margin: 20px;
@@ -151,10 +156,11 @@ h3 {
 }
 
 .slider-content img {
-  height: auto;
-  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  width: 200px;
   margin: 0 px;
-  padding: 10px;
+  box-sizing: border-box;
 }
 
 .slider-content p {

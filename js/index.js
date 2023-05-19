@@ -1,4 +1,4 @@
-// blogpost slider code with help from chatGPT
+// blog post slider code with help from chatGPT
 
 const sliderContainer = document.querySelector(".slides");
 const prevBtn = document.getElementById("prevBtn");
@@ -6,7 +6,9 @@ const nextBtn = document.getElementById("nextBtn");
 let counter = 0;
 let postsData;
 
-// fetch the 6 latest blogposts
+
+
+// fetch the 6 latest blog posts
 fetch("https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&per_page=6")
   .then((response) => response.json())
   .then((posts) => {
@@ -18,7 +20,7 @@ fetch("https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&per_page=6")
     posts.slice(0, 3).forEach((post) => {
       const postElement = document.createElement("div");
       postElement.classList.add("slider-content");
-      // link each blogpost to display in specific-blog.html with it's ID
+      // link each blog post to display in specific-blog.html with it's ID
       const postLink = document.createElement("a");
       postLink.href = `specific-blog.html?id=${post.id}`;
 
@@ -30,18 +32,18 @@ fetch("https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&per_page=6")
       sliderContainer.append(postElement);
     });
 
-    // adding event listner to next button, displaying 3 blogposts
+    // adding event listener to next button, displaying 3 blog posts
     const nextBtn = document.getElementById("nextBtn");
     nextBtn.addEventListener("click", () => {
       counter += 3;
       sliderContainer.innerHTML = "";
 
-      // check if there are more blogposts to display
+      // check if there are more blog posts to display
       if (counter >= postsData.length - 3) {
         nextBtn.disabled = true;
       }
 
-      // display the next 3 blogposts
+      // display the next 3 blog posts
       posts.slice(counter, counter + 3).forEach((post) => {
         const postElement = document.createElement("div");
         postElement.classList.add("slider-content");
@@ -62,18 +64,18 @@ fetch("https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&per_page=6")
       prevBtn.disabled = false;
     });
 
-    // adding event listner to the prev btn
+    // adding event listener to the prev btn
     const prevBtn = document.getElementById("prevBtn");
     prevBtn.addEventListener("click", () => {
       counter -= 3;
       sliderContainer.innerHTML = "";
 
-      // checking if there are prev blogposts to display
+      // checking if there are prev blog posts to display
       if (counter <= 0) {
         prevBtn.disabled = true;
       }
 
-      // display the prev 3 blogposts
+      // display the prev 3 blog posts
       posts.slice(counter, counter + 3).forEach((post) => {
         const postElement = document.createElement("div");
         postElement.classList.add("slider-content");
