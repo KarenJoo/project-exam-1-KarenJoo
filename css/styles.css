@@ -81,12 +81,8 @@ h3 {
 .latest-container {
   height: 550px;
   max-width: var(--width);
-  background-color: var(--white);
   margin-top: 40px;
   margin: 20px;
-}
-
-.latest-container {
   background-color: var(--light-green);
 }
 
@@ -104,11 +100,6 @@ h3 {
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
-
-.slides img {
-  height: auto;
-  width: 200px;
 }
 
 .form-btn,
@@ -210,12 +201,14 @@ h3 {
 
 .health-container h2,
 .lifestyle-container h2 {
+  display: none;
   color: var(--white);
   width: var(--width);
   text-align: center;
 }
 
 .section-flex-container {
+  display: none;
   margin-top: 30px;
   height: auto;
   width: var(--width);
@@ -225,6 +218,7 @@ h3 {
 
 .lifestyle-container,
 .health-container {
+  display: none;
   background-color: var(--light-green);
   width: 500px;
   height: 300px;
@@ -232,11 +226,25 @@ h3 {
 
 .health-flex,
 .lifestyle-flex {
+  display: none;
   height: 350px;
   width: var(--width);
   margin: 10px;
   box-shadow: var(--box-shadow);
   background-color: var(--white);
+}
+
+/* specific */
+
+.content {
+  margin: 0 auto;
+  height: auto;
+}
+
+.content img {
+  height: 200px;
+  width: 250px;
+  margin-left: 100px;
 }
 
 /* Loader */
@@ -650,6 +658,7 @@ textarea {
   .section-header {
     max-width: 100%;
   }
+
   .section-header h2 {
     width: 400px;
     font-size: 25px;
@@ -663,18 +672,28 @@ textarea {
     margin-bottom: 20px;
   }
 
+  .slides img {
+    height: auto;
+    width: 200px;
+    margin-left: 40px;
+  }
+
+  .slides h2 {
+    font-size: 20px;
+    text-align: center;
+    height: 40px;
+    width: 100%;
+  }
+
+  .slides p {
+    text-align: center;
+    padding: 5px;
+  }
+
   .slider-content {
     width: 200px;
     height: auto;
     margin: 10px auto;
-  }
-
-  .slider-btns {
-    margin-bottom: 50px;
-  }
-
-  button {
-    margin-bottom: 20px;
   }
 
   /* topic content */
@@ -694,7 +713,7 @@ textarea {
   .topic-logo img {
     height: auto;
     width: 100%;
-    margin: 20px auto;
+    margin: 40px auto;
     margin-left: 0px;
     display: flex;
     margin-bottom: 20px;
@@ -739,6 +758,15 @@ textarea {
     box-sizing: var(--box-sizing);
   }
 
+  /* specific */
+  .content img {
+    margin-left: -20px;
+    width: 300px;
+  }
+
+  .content p {
+    text-align: left;
+  }
   /* footer */
 
   .blog-footer {
