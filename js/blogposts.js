@@ -1,4 +1,4 @@
-const apiBase = "http://health-hub.karenjo.no";
+const apiBase = "https://health-hub.karenjo.no";
 const blogPosts = "/wp-json/wp/v2/posts";
 const fullBlogURL = apiBase + blogPosts;
 const blogPostsContainer = document.querySelector(".blog-posts-container");
