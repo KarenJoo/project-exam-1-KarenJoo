@@ -58,6 +58,9 @@ nav ul li a {
   text-decoration: none;
 }
 
+.active {
+  color: var(--light-green);
+}
 /* Latest posts */
 
 .section-header {
