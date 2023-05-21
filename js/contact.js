@@ -22,7 +22,9 @@ const firstNameValid = document.querySelector("#firstNameValid");
 
 function validateForm(event) {
   event.preventDefault();
-  if (checkLength(firstName.value, 0) === true) {
+
+  // validate name
+  if (checkLength(firstName.value, 5) === true) {
     firstNameError.style.display = "none";
     firstNameValid.textContent = "Name is valid!";
   } else {
@@ -30,6 +32,7 @@ function validateForm(event) {
     firstNameValid.textContent = "";
   }
 
+  //validate email
   const email = document.querySelector("#email");
   const emailError = document.querySelector("#emailError");
   const emailValid = document.querySelector("#emailValid");
@@ -41,11 +44,12 @@ function validateForm(event) {
     emailValid.textContent = "";
   }
 
+  // validate subject
   const subject = document.querySelector("#subject");
   const subjectError = document.querySelector("#subjectError");
   const subjectValid = document.querySelector("#subjectValid");
 
-  if (checkLength(subject.value, 0) === true) {
+  if (checkLength(subject.value, 15) === true) {
     subjectError.style.display = "none";
     subjectValid.textContent = "Subject is valid!";
   } else {
@@ -53,6 +57,7 @@ function validateForm(event) {
     subjectValid.textContent = "";
   }
 
+  // validate message
   const messageError = document.querySelector("#messageError");
   const messageId = document.querySelector("#message");
   const messageValid = document.querySelector("#messageValid");
