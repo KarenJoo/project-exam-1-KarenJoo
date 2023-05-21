@@ -236,16 +236,26 @@ h3 {
 
 /* specific */
 
+.content figure {
+  width: 800px;
+  max-width: var(--max-width);
+  box-sizing: border-box;
+}
+
 .content {
-  margin: 0 auto;
-  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .content img {
-  height: 200px;
-  width: 250px;
-  margin-left: 100px;
+  display: block;
+  margin: 0 auto;
+  height: 500px;
+  width: 800px;
 }
+
 
 /* Loader */
 .loader {
@@ -565,9 +575,7 @@ textarea {
   /* adjust burger menu icon */
   .nav-links {
     height: 10px;
-    width: 100px;
     padding-top: 20px;
-    margin-left: 20px;
     box-sizing: border-box;
   }
 
@@ -594,9 +602,10 @@ textarea {
 
   #burger-container {
     display: block;
-    margin-left: 80px;
+    margin-left: 60px;
     height: 15px;
     width: 60px;
+    box-sizing: border-box;
   }
 
   #burger-menu {
@@ -657,10 +666,11 @@ textarea {
 
   .section-header {
     max-width: 100%;
+    height: 40px;
+    width: 400px;
   }
 
   .section-header h2 {
-    width: 400px;
     font-size: 25px;
   }
 
@@ -759,9 +769,17 @@ textarea {
   }
 
   /* specific */
+
+  .content figure {
+    max-width: var(--width);
+  }
+
   .content img {
-    margin-left: -20px;
-    width: 300px;
+    display: block;
+    margin: 0 auto;
+    height: 300px;
+    width: 500px;
+    max-width: var(--width);
   }
 
   .content p {
