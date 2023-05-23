@@ -261,10 +261,6 @@ h3 {
   z-index: 9999;
 }
 
-.modal.show {
-  display: block;
-}
-
 .modal-content {
   position: absolute;
   top: 50%;
@@ -274,7 +270,7 @@ h3 {
   max-height: 90%;
 }
 
-.modal-image {
+.modal-img {
   display: block;
   max-width: 100%;
   max-height: 100%;
