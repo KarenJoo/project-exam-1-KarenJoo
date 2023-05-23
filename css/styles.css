@@ -250,47 +250,44 @@ h3 {
 }
 
 /* modal */
-.modal-container {
+.modal {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 9999;
 }
 
-.modal {
-  background-color: rgba(0, 0, 0, 0.8);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.modal.show {
+  display: block;
 }
 
 .modal-content {
-  position: relative;
-  max-width: 80%;
-  max-height: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  max-height: 90%;
 }
 
 .modal-content img {
+  display: block;
   max-width: 100%;
   max-height: 100%;
+  margin: 0 auto;
+  background-color: #000;
 }
 
 .close {
+  color: #fff;
+  font-size: 24px;
   position: absolute;
   top: 10px;
   right: 10px;
-  color: #fff;
-  font-size: 24px;
   cursor: pointer;
 }
 
@@ -823,7 +820,7 @@ textarea {
 
   .content img {
     display: block;
-    
+
     margin: 0 auto;
     height: 300px;
     max-width: 300px;
