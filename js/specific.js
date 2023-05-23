@@ -1,5 +1,4 @@
 const specificContainer = document.querySelector(".specific-blog-container");
-
 const postURL = "https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed";
 
 const queryString = document.location.search;
@@ -37,38 +36,6 @@ async function fetchPost() {
     const newPageTitle = `Health Hub | ${specificPost.slug}`;
     console.log(newPageTitle);
     document.title = newPageTitle;
-
-    // Modal box
-
-    const images = specificContainer.querySelectorAll(".content img");
-    console.log({ images });
-
-    images.forEach((image) => {
-      image.addEventListener("click", (event) => {
-        const modal = document.createElement("div");
-        modal.classList.add("modal");
-
-        const modalContent = document.createElement("div");
-        modalContent.classList.add("modal-content");
-        modalContent.innerHTML = `<img src="${event.target.src}" alt="${event.target.alt}">
-    <span class="close">&times;</span>`;
-
-        modal.append(modalContent);
-        specificContainer.append(modal);
-
-        const closeModalBtn = modal.querySelector(".close");
-
-        closeModalBtn.addEventListener("click", () => {
-          modal.remove();
-        });
-
-        modal.addEventListener("click", (event) => {
-          if (event.target === modal) {
-            modal.remove();
-          }
-        });
-      });
-    });
   } catch (error) {
     console.log(error);
     specificContainer.innerHTML = "An error occurred";
