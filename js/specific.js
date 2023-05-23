@@ -6,9 +6,7 @@ const postURL = "https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed";
 const imgURL = "https://health-hub.karenjo.no/wp-json/wp/v2/media/";
 
 const queryString = document.location.search;
-
 const params = new URLSearchParams(queryString);
-
 const id = params.get("id");
 
 // Fetch and display single post
@@ -20,8 +18,9 @@ async function fetchPost() {
     // get single post id
     const specificPost = post.find((post) => post.id === parseInt(id));
 
-
-
+    const imgResponse = await fetch(imgURL + specificPost.featured_media);
+    const imgData = await imgResponse.json();
+console.log(imgResponse)
     // loader
     specificContainer.innerHTML = "";
 
@@ -43,25 +42,26 @@ async function fetchPost() {
 
     const images = specificContainer.querySelectorAll(".content img");
 
-  imgs.forEach(function (image) {
-    image.addEventlistener("click", () => {
-modal.style.display = "block";
-modalContent.querySelector(".modal-img").src = image.src;
+    // event listener to add each img
+
+    images.forEach((image) => {
+      image.addEventListener("click", () => {
+        console.log("Image clicked!");
+        modalContent.style.backgroundImage = `url(${image.src})`;
+        modal.classList.add("show");
+      });
     });
-  });
 
-  modalClose.addEventListener("click", (event) => {
-    if (event.target === modal) {
-    modal.style.display = "none";
-  }
-  });
+    // event listener for closing the modal (chatGPT)
+    modalClose.addEventListener("click", () => {
+      modal.classList.remove("show");
+    });
 
-  window.addEventListener("click", (event) => {
-    if(event.target === modal) {
-      modal.style.display = "none";
-    }
-  });
-    
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.classList.remove("show");
+      }
+    });
   } catch (error) {
     console.log(error);
     specificContainer.innerHTML = "An error occurred";
