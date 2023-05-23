@@ -1,14 +1,12 @@
 const specificContainer = document.querySelector(".specific-blog-container");
 const modal = document.querySelector(".modal");
-const modalImage = modal.querySelector(".modal-image");
+const modalContent = document.querySelector(".modal-content");
 const modalClose = modal.querySelector(".close");
 const postURL = "https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed";
 const imgURL = "https://health-hub.karenjo.no/wp-json/wp/v2/media/";
 
 const queryString = document.location.search;
-
 const params = new URLSearchParams(queryString);
-
 const id = params.get("id");
 
 // Fetch and display single post
@@ -22,8 +20,7 @@ async function fetchPost() {
 
     const imgResponse = await fetch(imgURL + specificPost.featured_media);
     const imgData = await imgResponse.json();
-    const imageURL = imgData.source_url;
-
+console.log(imgResponse)
     // loader
     specificContainer.innerHTML = "";
 
@@ -50,7 +47,7 @@ async function fetchPost() {
     images.forEach((image) => {
       image.addEventListener("click", () => {
         console.log("Image clicked!");
-        modalImage.src = image.src;
+        modalContent.style.backgroundImage = `url(${image.src})`;
         modal.classList.add("show");
       });
     });
