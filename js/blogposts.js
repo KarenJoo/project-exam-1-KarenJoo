@@ -66,8 +66,14 @@ function createBlogHTML(blog) {
   const excerpt = document.createElement("p");
   excerpt.innerHTML = blog.excerpt.rendered;
   blogContent.append(excerpt);
-
+  
   container.append(blogContent);
+
+  //make all blogposts clickable
+blogLink.addEventListener("click", (event) => {
+  event.preventDefault();
+    window.location.href = blogLink.href;
+  });
 }
 
 // view button displays all fetched blogposts (chatGPT)

@@ -5,22 +5,23 @@ const modalClose = modal.querySelector(".close");
 const postURL = "https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed";
 const imgURL = "https://health-hub.karenjo.no/wp-json/wp/v2/media/";
 
-const queryString = document.location.search;
-const params = new URLSearchParams(queryString);
-const id = params.get("id");
+const queryString = window.document.location.search;
+const urlParams = new URLSearchParams(queryString);
+const id = urlParams.get("id");
 
 // Fetch and display single post
 async function fetchPost() {
   try {
-    const response = await fetch(postURL);
+    const response = await fetch(`${postURL}&include=${id}`);
     const post = await response.json();
+    const specificPost = post[0];
 
     // get single post id
-    const specificPost = post.find((post) => post.id === parseInt(id));
-
-    const imgResponse = await fetch(imgURL + specificPost.featured_media);
+    /*     const specificPost = post.find((post) => post.id === parseInt(id));
+     */
+    const imgResponse = await fetch(`${imgURL}${specificPost.featured_media}`);
     const imgData = await imgResponse.json();
-console.log(imgResponse)
+
     // loader
     specificContainer.innerHTML = "";
 
