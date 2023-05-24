@@ -14,11 +14,9 @@
 }
 
 header {
-  background-color: #0a4346ac;
+  background-color: #0a4346bd;
   height: 70px;
   display: flex;
-  position: fixed;
-  margin: 0px;
   transition: 0.25s linear;
   justify-content: space-between;
   width: 100%;
@@ -194,14 +192,13 @@ h3 {
 
 .health-container h2,
 .lifestyle-container h2 {
-  display: none;
   color: var(--white);
   width: var(--width);
   text-align: center;
 }
 
 .section-flex-container {
-  display: none;
+  display: flex;
   margin-top: 30px;
   height: auto;
   width: var(--width);
@@ -211,7 +208,6 @@ h3 {
 
 .lifestyle-container,
 .health-container {
-  display: none;
   background-color: var(--light-green);
   width: 500px;
   height: 300px;
@@ -219,7 +215,7 @@ h3 {
 
 .health-flex,
 .lifestyle-flex {
-  display: none;
+  display: flex;
   height: 350px;
   width: var(--width);
   margin: 10px;
@@ -312,6 +308,11 @@ h3 {
 .topic-loader {
   margin: 100px auto;
   margin-left: 100px;
+}
+
+.blogsite-loader,
+.specific-loader {
+  margin: 20px auto;
 }
 
 @keyframes spin {
@@ -586,7 +587,7 @@ textarea {
     width: 100%;
     max-width: var(--width);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
   }
 
@@ -596,8 +597,9 @@ textarea {
 
   header img {
     height: 50px;
-    width: 250px;
-    padding-top: 20px;
+    width: auto;
+    margin: 30px;
+    margin-top: 40px;
   }
 
   nav ul li {
@@ -607,10 +609,10 @@ textarea {
   }
 
   .links ul {
-    background-color: #0a4346ac;
-    margin-top: 23px;
+    background-color: #0a4346bd;
+    margin-top: 33px;
     height: 160px;
-    width: 120px;
+    width: 160px;
     align-items: end;
   }
 
@@ -623,7 +625,7 @@ textarea {
   /* adjust burger menu icon */
   .nav-links {
     height: 10px;
-    padding-top: 20px;
+    padding-top: 5px;
     box-sizing: border-box;
   }
 
@@ -650,7 +652,7 @@ textarea {
 
   #burger-container {
     display: block;
-    margin-left: 60px;
+    margin-left: 40px;
     height: 15px;
     width: 60px;
     box-sizing: border-box;
