@@ -16,14 +16,16 @@ async function fetchPost() {
     const post = await response.json();
     const specificPost = post[0];
 
-    const imgResponse = await fetch(`${imgURL}${specificPost.featured_media}?_embed`);
+    const imgResponse = await fetch(
+      `${imgURL}${specificPost.featured_media}?_embed`
+    );
     const imgData = await imgResponse.json();
     const imageUrl = imgData.media_details.sizes.full.source_url;
 
     // get single post id
     /*     const specificPost = post.find((post) => post.id === parseInt(id));
      */
-   
+
     // loader
     specificContainer.innerHTML = "";
 
@@ -40,21 +42,22 @@ async function fetchPost() {
       <div class="content">${specificPost.content.rendered}</div>
     `;
 
-
-
     const newPageTitle = `Health Hub | ${specificPost.slug}`;
     document.title = newPageTitle;
 
     const images = specificContainer.querySelectorAll(".content img");
 
-    // event listener to add each img
+    // replacing event listener with openModal to trigger tapping on other devices like iphone/ipdad to open modal (chatGPT)
 
     images.forEach((image) => {
-      image.addEventListener("click", () => {
+      const openModal = () => {
         console.log("Image clicked!");
         document.querySelector(".modal-image").src = imageUrl;
-                modal.classList.add("show");
-      });
+        modal.classList.add("show");
+      };
+
+      image.addEventListener("click", openModal);
+      image.addEventListener("touchstart", openModal);
     });
 
     // event listener for closing the modal (chatGPT)
