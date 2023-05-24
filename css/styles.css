@@ -596,7 +596,7 @@ textarea {
   }
 
   header img {
-    height: 50px;
+    height: 30px;
     width: auto;
     margin: 30px;
     margin-top: 40px;
@@ -612,8 +612,7 @@ textarea {
     background-color: #0a4346bd;
     margin-top: 33px;
     height: 160px;
-    width: 160px;
-    align-items: end;
+    width: 200px;
   }
 
   .nav-container {
@@ -628,6 +627,7 @@ textarea {
     padding-top: 5px;
     box-sizing: border-box;
   }
+
 
   .links ul {
     padding-top: 20px;

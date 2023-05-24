@@ -1,4 +1,4 @@
-const specificContainer = document.querySelector(".specific-blog-container");
+const specificContainer = document.querySelector(".specific-content");
 const modal = document.querySelector(".modal");
 const modalContent = document.querySelector(".modal-content");
 const modalClose = modal.querySelector(".close");
@@ -32,13 +32,15 @@ async function fetchPost() {
       year: "numeric",
     });
 
-    specificContainer.innerHTML = `<div class="specific-content">
-                                    <h1>${specificPost.title.rendered}</h1><p>Published on ${date}</p>
-                                    <div class="content">${specificPost.content.rendered}</div>
-                                    </div>`;
+    specificContainer.innerHTML = `
+      <h1>${specificPost.title.rendered}</h1>
+      <p>Published on ${date}</p>
+      <div class="content">${specificPost.content.rendered}</div>
+    `;
+
+
 
     const newPageTitle = `Health Hub | ${specificPost.slug}`;
-    console.log(newPageTitle);
     document.title = newPageTitle;
 
     const images = specificContainer.querySelectorAll(".content img");
