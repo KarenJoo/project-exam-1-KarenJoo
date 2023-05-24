@@ -25,9 +25,6 @@ function fetchAndDisplayBlogs(containerElement, category, limit) {
   let apiURL =
     "https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&per_page=6";
 
-  // display the loader
-  sliderContainer.innerHTML = '<div class="loader"></div>';
-
   // fetch the 6 latest blog posts
   fetch(apiURL)
     .then((response) => response.json())
@@ -102,15 +99,14 @@ function fetchAndDisplayCategoryBlogs(containerElement, category, limit) {
 
   fetch(topicAPI)
     .then((response) => response.json())
-    .then((posts) => { 
-     
+    .then((posts) => {
+      contentContainer.innerHTML = "";
 
       posts.forEach((post) => {
         const postElement = createPostElement(post);
         contentContainer.append(postElement);
       });
     });
-    
 }
 
 // function to create a post element
