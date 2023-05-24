@@ -7,7 +7,15 @@ let postsPerPage = 10;
 
 // fetch all blogposts
 async function getBlogPosts() {
+  const loaderElements = document.querySelectorAll(".loader");
+  const loaderArray = Array.from(loaderElements);
   try {
+
+    // Display the loaders (chatGPT)
+    loaderArray.forEach((loader) => {
+      loader.style.display = "block";
+    });
+
     const response = await fetch(
       `${fullBlogURL}?per_page=${postsPerPage}&page=${pageNumber}`
     );
@@ -15,9 +23,18 @@ async function getBlogPosts() {
     console.log(blogs);
 
     displayBlogs(0, postsPerPage, blogs);
+
+    // Hide the loaders once the content is fetched
+    loaderArray.forEach((loader) => {
+      loader.style.display = "none";
+    });
   } catch (error) {
     console.log(error);
     blogPostsContainer.textContent = `An error occurred", ${error}`;
+    // Hide the loaders in case of an error
+    loaderArray.forEach((loader) => {
+      loader.style.display = "none";
+    });
   }
 }
 
@@ -66,12 +83,12 @@ function createBlogHTML(blog) {
   const excerpt = document.createElement("p");
   excerpt.innerHTML = blog.excerpt.rendered;
   blogContent.append(excerpt);
-  
+
   container.append(blogContent);
 
   //make all blogposts clickable
-blogLink.addEventListener("click", (event) => {
-  event.preventDefault();
+  blogLink.addEventListener("click", (event) => {
+    event.preventDefault();
     window.location.href = blogLink.href;
   });
 }

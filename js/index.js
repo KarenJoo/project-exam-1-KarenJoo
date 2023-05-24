@@ -1,7 +1,7 @@
 // Fetch and display the latest posts in the "latest-container"
 fetchAndDisplayBlogs(".latest-container", "", 6);
 
-// fetch and display categories 
+// fetch and display categories
 
 // Fetch and display the topic of the month posts in the "topic-container"
 fetchAndDisplayBlogs(".topic-container", 17, 1);
@@ -24,6 +24,9 @@ function fetchAndDisplayBlogs(containerElement, category, limit) {
   //fetch blog posts based on category (topic-, health-, and lifestyle-container)
   let apiURL =
     "https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&per_page=6";
+
+  // display the loader
+  sliderContainer.innerHTML = '<div class="loader"></div>';
 
   // fetch the 6 latest blog posts
   fetch(apiURL)
@@ -85,9 +88,9 @@ function fetchAndDisplayBlogs(containerElement, category, limit) {
       prevBtn.disabled = true;
     });
 
-    if (category) {
-      fetchAndDisplayCategoryBlogs(containerElement, category, limit)
-    }
+  if (category) {
+    fetchAndDisplayCategoryBlogs(containerElement, category, limit);
+  }
 }
 
 // fetch and display category blog posts in "topic-container" (chatGPT)
@@ -98,15 +101,16 @@ function fetchAndDisplayCategoryBlogs(containerElement, category, limit) {
   const topicAPI = `https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&categories=22&per_page=100`;
 
   fetch(topicAPI)
-  .then((response) => response.json())
-  .then((posts) => {
-    contentContainer.innerHTML = "";
+    .then((response) => response.json())
+    .then((posts) => { 
+     
 
-    posts.forEach((post) => {
-const postElement = createPostElement(post);
-contentContainer.append(postElement);
+      posts.forEach((post) => {
+        const postElement = createPostElement(post);
+        contentContainer.append(postElement);
+      });
     });
-  });
+    
 }
 
 // function to create a post element
@@ -128,5 +132,3 @@ function createPostElement(post) {
   // style the single topic-div
   return postElement;
 }
-
-

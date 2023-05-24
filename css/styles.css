@@ -294,13 +294,13 @@ h3 {
 /* Loader */
 .loader {
   box-sizing: border-box;
-  border: 16px solid #3e827e11;
-  border-top: 16px solid #46908c;
+  border: 16px solid #0003035c;
+  border-top: 16px solid var(--light-green);
   border-radius: 50%;
-  max-width: 300px;
-  width: 150px;
-  height: 150px;
-  margin: 0 auto;
+  max-width: 500px;
+  width: 100px;
+  height: 100px;
+  margin-left: 200px;
   animation: spin 3s linear infinite;
 }
 
@@ -718,6 +718,7 @@ textarea {
     height: auto;
     align-items: center;
     margin-bottom: 20px;
+    min-height: 200px;
   }
 
   .slides img {
