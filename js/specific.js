@@ -16,12 +16,14 @@ async function fetchPost() {
     const post = await response.json();
     const specificPost = post[0];
 
+    const imgResponse = await fetch(`${imgURL}${specificPost.featured_media}?_embed`);
+    const imgData = await imgResponse.json();
+    const imageUrl = imgData.media_details.sizes.full.source_url;
+
     // get single post id
     /*     const specificPost = post.find((post) => post.id === parseInt(id));
      */
-    const imgResponse = await fetch(`${imgURL}${specificPost.featured_media}`);
-    const imgData = await imgResponse.json();
-
+   
     // loader
     specificContainer.innerHTML = "";
 
@@ -50,8 +52,8 @@ async function fetchPost() {
     images.forEach((image) => {
       image.addEventListener("click", () => {
         console.log("Image clicked!");
-        modalContent.style.backgroundImage = `url(${image.src})`;
-        modal.classList.add("show");
+        document.querySelector(".modal-image").src = imageUrl;
+                modal.classList.add("show");
       });
     });
 
