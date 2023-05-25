@@ -8,13 +8,14 @@
   --light-green: #46908c;
   --dark-green: #0a4346;
   --white: #fff;
+  --grey: #212529;
   --width: 100%;
   --box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   --box-sizing: border-box;
 }
 
 header {
-  background-color: #0a4346bd;
+  background-color: var(--grey);
   height: 70px;
   display: flex;
   transition: 0.25s linear;
@@ -304,7 +305,6 @@ h3 {
   margin-bottom: 100px;
 }
 
-
 .topic-loader {
   margin: 100px auto;
   margin-left: 100px;
@@ -400,7 +400,7 @@ textarea {
 
 /* footer */
 .blog-footer {
-  background-color: var(--dark-green);
+  background-color: var(--grey);
   color: #fff;
   width: var(--width);
   height: 400px;
@@ -443,10 +443,12 @@ textarea {
 
 .footer-row-3 {
   margin: 0 auto;
+  justify-content: center;
 }
 
 .footer-row-3 h5 {
   margin: 20px auto;
+  text-align: center;
   height: 20px;
   width: var(--width);
 }
@@ -589,7 +591,7 @@ textarea {
 
 @media screen and (min-width: 250px) and (max-width: 811px) {
   header {
-    width: 100%;
+    width: var(--white);
     max-width: var(--width);
     display: flex;
     justify-content: space-between;
@@ -618,7 +620,7 @@ textarea {
   }
 
   .links ul {
-    background-color: #0a4346bd;
+    background-color: var(--grey);
     margin-top: 33px;
     height: 160px;
     width: 200px;
@@ -701,8 +703,6 @@ textarea {
     background-color: var(--white);
     transform: translateX(0) translateY(-10px) rotate(-45deg);
   }
-
-  
 
   .ocean-img img,
   .hero-img img {
@@ -891,7 +891,6 @@ textarea {
   .footer-logo {
     height: 30px;
     margin: 20px auto;
-    margin-left: 80px;
   }
 
   .footer-row-1,
@@ -918,7 +917,7 @@ textarea {
     padding: 5px;
   }
   .footer-row-3 h5 {
-    margin: 0px auto;
+    margin: 20px auto;
     text-align: center;
   }
 }
