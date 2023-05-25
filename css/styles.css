@@ -159,6 +159,7 @@ h3 {
 
 /* topic of the month container */
 
+
 .topic-container {
   display: flex;
   max-width: 700px;
@@ -177,6 +178,7 @@ h3 {
   height: auto;
 }
 
+.health-content,
 .topic-content {
   height: 400px;
   width: 200px;
@@ -287,6 +289,7 @@ h3 {
   cursor: pointer;
 }
 
+
 /* Loader */
 .loader {
   box-sizing: border-box;
@@ -305,6 +308,7 @@ h3 {
   margin-bottom: 100px;
 }
 
+.health-loader,
 .topic-loader {
   margin: 100px auto;
   margin-left: 100px;
@@ -399,6 +403,7 @@ textarea {
   color: #fff;
   width: var(--width);
   height: 400px;
+  
 }
 
 .footer-links a {
@@ -608,6 +613,10 @@ textarea {
     margin-right: 20px;
   }
 
+  body {
+    margin: 0px;
+  }
+
   .links ul {
     background-color: #0a4346bd;
     margin-top: 33px;
@@ -627,7 +636,6 @@ textarea {
     padding-top: 5px;
     box-sizing: border-box;
   }
-
 
   .links ul {
     padding-top: 20px;
@@ -694,16 +702,20 @@ textarea {
     transform: translateX(0) translateY(-10px) rotate(-45deg);
   }
 
+  .ocean-img img,
   .hero-img img {
     object-position: top 0px left;
     object-fit: cover;
     width: 100%;
   }
+
+  .ocean-img,
   .hero-img {
     width: 100%;
     height: 400px;
     object-fit: cover;
   }
+
 
   /* latest content */
 
@@ -936,21 +948,30 @@ textarea {
     top: 40%;
   }
 
+  .ocean,
   .hero {
     position: relative;
     width: var(--width);
     max-width: var(--width);
   }
+
+  .ocean-img,
   .hero-img {
     object-fit: cover;
     object-position: top 0px center 0px;
   }
 
+  .ocean img,
   .hero img {
     height: 700px;
     object-fit: cover;
     width: var(--width);
     max-width: 100%;
+  }
+
+  .ocean {
+    height: 100%;
+    width: 100%;
   }
 
   /* section flex container */

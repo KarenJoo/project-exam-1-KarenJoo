@@ -7,7 +7,7 @@ fetchAndDisplayBlogs(".latest-container", "", 6);
 fetchAndDisplayBlogs(".topic-container", 17, 1);
 
 // Fetch and display the health posts in the "health-container"
-fetchAndDisplayBlogs(".health-container", 22, 3);
+fetchAndDisplayBlogs(".health-container", 18, 3);
 
 // Fetch and display the lifestyle posts in the "lifestyle-container"
 fetchAndDisplayBlogs(".lifestyle-container", 23, 3);
@@ -87,6 +87,8 @@ function fetchAndDisplayBlogs(containerElement, category, limit) {
 
   if (category) {
     fetchAndDisplayCategoryBlogs(containerElement, category, limit);
+    fetchAndDisplayHealthBlogs(".health-container", category, limit);
+    fetchAndDisplayLifestyleBlogs(".health-container", category, limit);
   }
 }
 
@@ -108,6 +110,45 @@ function fetchAndDisplayCategoryBlogs(containerElement, category, limit) {
       });
     });
 }
+
+// Function to fetch and display health-posts to health-flex div
+function fetchAndDisplayHealthBlogs(containerElement, category, limit) {
+  const container = document.querySelector(containerElement);
+  const contentContainer = healthContainer.querySelector(".health-content");
+
+  const healthAPI = `https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&categories=17&per_page=100`;
+
+  fetch(healthAPI)
+  .then((response) => response.json())
+  .then((posts) => {
+   healthContentContainer.innerHTML = "";
+
+    posts.forEach ((post) => {
+      const postElement = createPostElement(post);
+      healthContentContainer.append(postElement);
+    });
+  });
+}
+
+// Function to fetch and display health-posts to health-flex div
+function fetchAndDisplayHealthBlogs(containerElement, category, limit) {
+  const container = document.querySelector(containerElement);
+  const contentContainer = healthContainer.querySelector(".health-content");
+
+  const lifestyleAPI = `https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&categories=18&per_page=100`;
+
+  fetch(healthAPI)
+  .then((response) => response.json())
+  .then((posts) => {
+   healthContentContainer.innerHTML = "";
+
+    posts.forEach ((post) => {
+      const postElement = createPostElement(post);
+      healthContentContainer.append(postElement);
+    });
+  });
+}
+
 
 // function to create a post element
 function createPostElement(post) {
