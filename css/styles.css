@@ -818,6 +818,7 @@ textarea {
 
   .small-content-title {
     display: flex;
+    width: 280px;
   }
 
   .section-flex-container {
@@ -855,18 +856,33 @@ textarea {
     box-sizing: var(--box-sizing);
   }
 
+  /* blog posts */
+
+  .blog-posts-container {
+    width: 50%;
+  }
+
+  .blog-posts-container img {
+    height: 400px;
+  }
+
   /* specific */
 
   .content figure {
+    width: var(--width);
+  }
+
+  .figure img {
+    width: var(--width);
     max-width: var(--width);
   }
 
   .content img {
     display: block;
-
-    margin: 0 auto;
-    height: 300px;
-    max-width: 300px;
+    height: 400px;
+    width: 300px;
+    margin-left: 30px;
+    max-width: var(--width);
   }
 
   .content p {
