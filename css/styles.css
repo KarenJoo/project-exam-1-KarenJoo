@@ -163,7 +163,7 @@ h3 {
 .topic-logo {
   flex: 0 0 auto;
   margin-right: 100px;
-  margin-left: 50px;
+  margin-left: 200px;
 }
 
 .topic-logo img {
@@ -201,6 +201,10 @@ h3 {
 .content-title {
   margin-top: 20px;
   margin-left: 10px;
+}
+
+.small-content-title {
+  display: none;
 }
 
 .lifestyle-flex {
@@ -807,6 +811,14 @@ textarea {
   }
 
   /* section flex containers */
+
+  .content-title {
+    display: none;
+  }
+
+  .small-content-title {
+    display: flex;
+  }
 
   .section-flex-container {
     flex-direction: column;
