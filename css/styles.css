@@ -162,17 +162,20 @@ h3 {
 
 .topic-container {
   display: flex;
-  max-width: 700px;
+  max-width: var(--width);
   margin: 100px auto;
+  background-color: var(--dark-green);
+  padding-top: 50px;
 }
 
 .topic-logo {
   flex: 0 0 auto;
+  margin: 30px;
 }
 
 .topic-logo img {
   height: 200px;
-  margin-top: 50px;
+  margin-top: 20px;
   box-sizing: border-box;
   width: var(--width);
   height: auto;
