@@ -7,10 +7,10 @@ fetchAndDisplayBlogs(".latest-container", "", 6);
 fetchAndDisplayBlogs(".topic-container", 17, 1);
 
 // Fetch and display the health posts in the "health-container"
-fetchAndDisplayBlogs(".health-container", 18, 3);
+fetchAndDisplayHealthBlogs(".health-container", 20, 2);
 
 // Fetch and display the lifestyle posts in the "lifestyle-container"
-fetchAndDisplayBlogs(".lifestyle-container", 23, 3);
+fetchAndDisplayLifestyleBlogs(".lifestyle-container", 23, 2);
 
 // blog post slider code with help from chatGPT
 function fetchAndDisplayBlogs(containerElement, category, limit) {
@@ -87,8 +87,8 @@ function fetchAndDisplayBlogs(containerElement, category, limit) {
 
   if (category) {
     fetchAndDisplayCategoryBlogs(containerElement, category, limit);
-    fetchAndDisplayHealthBlogs(".health-container", category, limit);
-    fetchAndDisplayLifestyleBlogs(".health-container", category, limit);
+    fetchAndDisplayHealthBlogs(".health-flex", category, limit);
+    fetchAndDisplayLifestyleBlogs(".lifestyle-flex", category, limit);
   }
 }
 
@@ -97,7 +97,7 @@ function fetchAndDisplayCategoryBlogs(containerElement, category, limit) {
   const container = document.querySelector(containerElement);
   const contentContainer = container.querySelector(".topic-content");
 
-  const topicAPI = `https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&categories=22&per_page=100`;
+  const topicAPI = `https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&categories=22&per_page=1`;
 
   fetch(topicAPI)
     .then((response) => response.json())
@@ -114,41 +114,40 @@ function fetchAndDisplayCategoryBlogs(containerElement, category, limit) {
 // Function to fetch and display health-posts to health-flex div
 function fetchAndDisplayHealthBlogs(containerElement, category, limit) {
   const container = document.querySelector(containerElement);
-  const contentContainer = healthContainer.querySelector(".health-content");
+  const contentContainer = container.querySelector(".health-flex");
 
-  const healthAPI = `https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&categories=17&per_page=100`;
+  const healthAPI = `https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&categories=20&per_page=2`;
 
   fetch(healthAPI)
-  .then((response) => response.json())
-  .then((posts) => {
-   healthContentContainer.innerHTML = "";
+    .then((response) => response.json())
+    .then((posts) => {
+      contentContainer.innerHTML = "";
 
-    posts.forEach ((post) => {
-      const postElement = createPostElement(post);
-      healthContentContainer.append(postElement);
+      posts.forEach((post) => {
+        const postElement = createPostElement(post);
+        contentContainer.append(postElement);
+      });
     });
-  });
 }
 
 // Function to fetch and display health-posts to health-flex div
-function fetchAndDisplayHealthBlogs(containerElement, category, limit) {
+function fetchAndDisplayLifestyleBlogs(containerElement, category, limit) {
   const container = document.querySelector(containerElement);
-  const contentContainer = healthContainer.querySelector(".health-content");
+  const contentContainer = container.querySelector(".lifestyle-flex");
 
-  const lifestyleAPI = `https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&categories=18&per_page=100`;
+  const lifestyleAPI = `https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&categories=18&per_page=2`;
 
-  fetch(healthAPI)
-  .then((response) => response.json())
-  .then((posts) => {
-   healthContentContainer.innerHTML = "";
+  fetch(lifestyleAPI)
+    .then((response) => response.json())
+    .then((posts) => {
+      contentContainer.innerHTML = "";
 
-    posts.forEach ((post) => {
-      const postElement = createPostElement(post);
-      healthContentContainer.append(postElement);
+      posts.forEach((post) => {
+        const postElement = createPostElement(post);
+        contentContainer.append(postElement);
+      });
     });
-  });
 }
-
 
 // function to create a post element
 function createPostElement(post) {
@@ -159,7 +158,7 @@ function createPostElement(post) {
   postLink.href = `specific-blog.html?id=${post.id}`;
 
   postLink.innerHTML = `
-  <h2>${post.title.rendered}</h2>
+  <h3>${post.title.rendered}</h3>
   <img src="${post._embedded["wp:featuredmedia"][0].source_url}" alt="${post.title.rendered}">
   <p>${post.excerpt.rendered}</p>
 `;

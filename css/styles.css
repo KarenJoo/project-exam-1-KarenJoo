@@ -132,8 +132,8 @@ h3 {
   display: block;
 }
 
-.latest-blogpost h2,
-.slider-content h2 {
+.latest-blogpost h3,
+.slider-content h3 {
   font-size: 15px;
 }
 
@@ -158,7 +158,6 @@ h3 {
 }
 
 /* topic of the month container */
-
 
 .topic-container {
   display: flex;
@@ -210,7 +209,7 @@ h3 {
 
 .lifestyle-container,
 .health-container {
-  background-color: var(--light-green);
+  max-width: var(--width);
   width: 500px;
   height: 300px;
 }
@@ -218,11 +217,9 @@ h3 {
 .health-flex,
 .lifestyle-flex {
   display: flex;
+  width: 300px;
   height: 350px;
-  width: var(--width);
-  margin: 10px;
-  box-shadow: var(--box-shadow);
-  background-color: var(--white);
+  max-width: var(--width);
 }
 
 /* specific */
@@ -288,7 +285,6 @@ h3 {
   right: 10px;
   cursor: pointer;
 }
-
 
 /* Loader */
 .loader {
@@ -403,7 +399,6 @@ textarea {
   color: #fff;
   width: var(--width);
   height: 400px;
-  
 }
 
 .footer-links a {
@@ -715,7 +710,6 @@ textarea {
     height: 400px;
     object-fit: cover;
   }
-
 
   /* latest content */
 
