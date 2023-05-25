@@ -304,7 +304,7 @@ h3 {
   margin-bottom: 100px;
 }
 
-.health-loader,
+
 .topic-loader {
   margin: 100px auto;
   margin-left: 100px;
@@ -313,6 +313,11 @@ h3 {
 .blogsite-loader,
 .specific-loader {
   margin: 20px auto;
+}
+
+.health-loader,
+.lifestyle-loader {
+  margin: 200px auto;
 }
 
 @keyframes spin {
@@ -582,7 +587,7 @@ textarea {
 
 /* mobile screen */
 
-@media screen and (min-width: 250px) and (max-width: 667px) {
+@media screen and (min-width: 250px) and (max-width: 811px) {
   header {
     width: 100%;
     max-width: var(--width);
@@ -696,6 +701,8 @@ textarea {
     background-color: var(--white);
     transform: translateX(0) translateY(-10px) rotate(-45deg);
   }
+
+  
 
   .ocean-img img,
   .hero-img img {
@@ -814,6 +821,7 @@ textarea {
   .health-container {
     margin: 0 auto;
     width: 350px;
+    height: auto;
     max-width: var(--width);
     padding-right: 20px;
     box-sizing: border-box;
@@ -826,7 +834,10 @@ textarea {
 
   .health-flex,
   .lifestyle-flex {
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    height: 800px;
     padding: 20px;
     box-sizing: var(--box-sizing);
   }
@@ -847,6 +858,17 @@ textarea {
 
   .content p {
     text-align: left;
+  }
+
+  .ocean {
+    height: auto;
+    width: 100%;
+  }
+
+  .ocean-img img {
+    object-fit: cover;
+    height: auto;
+    width: 100%;
   }
   /* footer */
 
@@ -903,7 +925,7 @@ textarea {
 
 /* desktop */
 
-@media screen and (min-width: 668px) {
+@media screen and (min-width: 810px) {
   header img {
     margin-right: auto;
     margin-top: 20px;
@@ -970,13 +992,17 @@ textarea {
 
   /* section flex container */
   .section-flex-container {
-    flex-direction: row;
+    width: 70%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
   }
 
   .health-container {
     flex: 0 0 auto;
     margin: 20px;
     width: 50%;
+    height: auto;
   }
 
   .lifestyle-container {

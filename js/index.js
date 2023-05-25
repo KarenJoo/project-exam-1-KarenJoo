@@ -7,10 +7,10 @@ fetchAndDisplayBlogs(".latest-container", "", 6);
 fetchAndDisplayBlogs(".topic-container", 17, 1);
 
 // Fetch and display the health posts in the "health-container"
-fetchAndDisplayHealthBlogs(".health-container", 20, 2);
+fetchAndDisplayHealthBlogs(".health-container", 20, 3);
 
 // Fetch and display the lifestyle posts in the "lifestyle-container"
-fetchAndDisplayLifestyleBlogs(".lifestyle-container", 23, 2);
+fetchAndDisplayLifestyleBlogs(".lifestyle-container", 23, 3);
 
 // blog post slider code with help from chatGPT
 function fetchAndDisplayBlogs(containerElement, category, limit) {
@@ -116,7 +116,7 @@ function fetchAndDisplayHealthBlogs(containerElement, category, limit) {
   const container = document.querySelector(containerElement);
   const contentContainer = container.querySelector(".health-flex");
 
-  const healthAPI = `https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&categories=20&per_page=2`;
+  const healthAPI = `https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&categories=20&per_page=3`;
 
   fetch(healthAPI)
     .then((response) => response.json())
@@ -135,7 +135,7 @@ function fetchAndDisplayLifestyleBlogs(containerElement, category, limit) {
   const container = document.querySelector(containerElement);
   const contentContainer = container.querySelector(".lifestyle-flex");
 
-  const lifestyleAPI = `https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&categories=18&per_page=2`;
+  const lifestyleAPI = `https://health-hub.karenjo.no/wp-json/wp/v2/posts?_embed&categories=18&per_page=3`;
 
   fetch(lifestyleAPI)
     .then((response) => response.json())
