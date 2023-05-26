@@ -785,13 +785,14 @@ textarea {
   .topic-container {
     margin-top: 550px;
     height: 850px;
+    max-width: var(--width);
     width: 100%;
     flex-direction: column;
   }
 
   .topic-logo {
-    width: 80%;
-    height: 400px;
+    width: 200px;
+    height: auto;
     margin: 10px auto;
     box-sizing: border-box;
     display: flex;
@@ -799,15 +800,19 @@ textarea {
 
   .topic-logo img {
     height: auto;
-    width: 400px;
+    width: 250px;
     margin: 40px auto;
     margin-bottom: 20px;
   }
 
   .topic-content {
-    width: 250px;
+    width: 300px;
     height: 20px;
     margin: 0 auto;
+  }
+
+  .loader {
+    margin: 50px auto;
   }
 
   /* section flex containers */
@@ -823,8 +828,8 @@ textarea {
 
   .section-flex-container {
     flex-direction: column;
-    width: 90%;
-    max-width: var(--width);
+    width: 300px;
+    max-width: 100%;
     height: auto;
     margin-top: auto;
     margin-bottom: auto;
@@ -835,8 +840,8 @@ textarea {
     margin: 350px auto;
     width: 350px;
     height: auto;
-    max-width: var(--width);
-    padding-right: 20px;
+    max-width: 100%;
+    padding-right: 40px;
     box-sizing: border-box;
   }
 
@@ -859,14 +864,25 @@ textarea {
   /* blog posts */
 
   .blog-posts-container {
-    width: 50%;
+    width: 100%;
+    max-width: var(--width);
+    box-sizing: border-box;
   }
 
   .blog-posts-container img {
     height: 400px;
   }
 
+  .view-more-btn {
+    margin-bottom: 100px;
+  }
+
   /* specific */
+
+  .specific-blog-container {
+    height: auto;
+    margin-bottom: 150px;
+  }
 
   .content figure {
     width: var(--width);
@@ -881,7 +897,7 @@ textarea {
     display: block;
     height: 400px;
     width: 300px;
-    margin-left: 30px;
+    margin: 0 auto;
     max-width: var(--width);
   }
 
@@ -889,11 +905,19 @@ textarea {
     text-align: left;
   }
 
+  /* modal */
+
+  .modal-content {
+    width: 400px;
+    height: auto;
+  }
+
   .ocean {
     height: auto;
-    width: 100%;
     background-color: var(--grey);
     margin-top: 300px;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .ocean-img img {
@@ -901,10 +925,26 @@ textarea {
     height: auto;
     width: 100%;
   }
+
+  /* contact form */
+
+  #contactForm {
+    width: 250px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  input {
+    width: 220px;
+  }
+
+  textarea {
+    width: 225px;
+  }
   /* footer */
 
   .blog-footer {
-    height: auto;
+    height: 700px;
     width: var(--width);
     box-sizing: border-box;
     align-items: center;
@@ -947,9 +987,11 @@ textarea {
   .footer-links li {
     padding: 5px;
   }
+
   .footer-row-3 h5 {
-    margin: 20px auto;
+    margin: 40px auto;
     text-align: center;
+    max-width: var(--width);
   }
 }
 
@@ -1023,7 +1065,7 @@ textarea {
 
   /* section flex container */
   .section-flex-container {
-    width: 70%;
+    width: 100%;
     height: auto;
     flex-direction: column;
     align-items: center;
