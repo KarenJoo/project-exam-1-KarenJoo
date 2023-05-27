@@ -162,8 +162,7 @@ h3 {
 
 .topic-logo {
   flex: 0 0 auto;
-  margin-right: 100px;
-  margin-left: 200px;
+  margin: 0 auto;
 }
 
 .topic-logo img {
@@ -179,6 +178,10 @@ h3 {
   height: 400px;
   width: 200px;
   margin-right: 200px;
+}
+
+.topic-content {
+  left: 0;
 }
 
 .latest-blogpost {
@@ -275,6 +278,54 @@ h3 {
   cursor: pointer;
 }
 
+/* about page */
+.about-container {
+  width: var(--width);
+  background-image: url("../images/hero.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+}
+
+/* glass effect (instagram @codewithfaraz) */
+.about-info-two,
+.about-info-one {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.639),
+    rgba(255, 255, 255, 0.072)
+  );
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.031);
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 700px;
+  width: 80%;
+  text-align: left;
+  padding: 30px;
+  margin-bottom: 100px;
+}
+
+.about-info-one {
+  margin-top: 200px;
+}
+
+.about-info-two h1,
+.about-info-one h1 {
+  font-size: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+  color: var(--white);
+  filter: drop-shadow(1px 3px 0.5px #323232b4);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
 /* Loader */
 .loader {
   box-sizing: border-box;
@@ -317,7 +368,7 @@ h3 {
   }
 }
 
-/* Conctact form */
+/* Contact form */
 .contact-container {
   max-width: 500px;
   display: flex;
@@ -331,6 +382,7 @@ h3 {
 p {
   margin-bottom: 0px;
 }
+
 form {
   padding: 2em;
   height: auto;
@@ -716,9 +768,8 @@ textarea {
   }
 
   .section-header {
-    max-width: 100%;
     height: 40px;
-    width: 400px;
+    width: 100%;
   }
 
   .section-header h2 {
@@ -924,6 +975,26 @@ textarea {
     object-fit: cover;
     height: auto;
     width: 100%;
+  }
+
+  .about-container {
+    display: flex;
+    flex-direction: row;
+    height: 1200px;
+  }
+
+  .about-info-one {
+    display: flex;
+    height: auto;
+    width: 60%;
+    margin-bottom: 20px;
+    top: 60%;
+  }
+  .about-info-two {
+    display: flex;
+    height: auto;
+    width: 60%;
+    margin-top: 650px;
   }
 
   /* contact form */
