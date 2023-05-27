@@ -43,23 +43,41 @@ body {
 }
 
 nav ul {
+  display: flex;
   list-style: none;
-  padding-right: 20px;
+  padding: 0;
+  margin: 0;
 }
 
 nav ul li {
-  display: inline-block;
   margin: 0 10px;
+  position: relative;
 }
 
 nav ul li a {
+  display: inline-block;
   color: var(--white);
   text-decoration: none;
+  padding-bottom: 2px;
+  position: relative;
 }
 
-.active {
-  color: var(--light-green);
+nav ul li a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.3s;
 }
+
+nav ul li a:hover::before,
+nav ul li a.active::before {
+  background-color: var(--white);
+}
+
 /* Latest posts */
 
 .section-header {
