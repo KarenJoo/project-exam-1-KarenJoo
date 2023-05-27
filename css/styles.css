@@ -326,6 +326,12 @@ h3 {
   margin-bottom: 30px;
 }
 
+.about-info-one p,
+.about-info-two p {
+  color: var(--white);
+  filter: drop-shadow(1px 1px 0.5px #323232b4);
+}
+
 /* Loader */
 .loader {
   box-sizing: border-box;
@@ -975,26 +981,6 @@ textarea {
     object-fit: cover;
     height: auto;
     width: 100%;
-  }
-
-  .about-container {
-    display: flex;
-    flex-direction: row;
-    height: 1200px;
-  }
-
-  .about-info-one {
-    display: flex;
-    height: auto;
-    width: 60%;
-    margin-bottom: 20px;
-    top: 60%;
-  }
-  .about-info-two {
-    display: flex;
-    height: auto;
-    width: 60%;
-    margin-top: 650px;
   }
 
   /* contact form */
