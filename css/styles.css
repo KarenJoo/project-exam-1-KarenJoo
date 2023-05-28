@@ -564,11 +564,17 @@ textarea {
   padding: 20px;
   box-shadow: var(--box-shadow);
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .blog a {
   text-decoration: none;
   color: #000;
+}
+
+.blog h2 {
+  font-size: 20px;
+  color: var(--dark-green);
 }
 
 .blog img {

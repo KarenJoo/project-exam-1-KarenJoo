@@ -157,12 +157,21 @@ function createPostElement(post) {
   const postLink = document.createElement("a");
   postLink.href = `specific-blog.html?id=${post.id}`;
 
-  postLink.innerHTML = `
-  <h3>${post.title.rendered}</h3>
-  <img src="${post._embedded["wp:featuredmedia"][0].source_url}" alt="${post.title.rendered}">
-  <p>${post.excerpt.rendered}</p>
-`;
+  const postContent = document.createElement("div");
+  postContent.classList.add("post-content");
 
+  const postTitle = document.createElement("h3");
+  postTitle.innerHTML = post.title.rendered;
+
+  const postImage = document.createElement("img");
+  postImage.src = post._embedded["wp:featuredmedia"][0].source_url;
+  postImage.alt = post.title.rendered;
+
+  const postExcerpt = document.createElement("p");
+  postExcerpt.innerHTML = post.excerpt.rendered;
+
+  postContent.append(postTitle, postImage, postExcerpt);
+  postLink.append(postContent);
   postElement.append(postLink);
 
   // style the single topic-div

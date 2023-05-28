@@ -10,7 +10,6 @@ async function getBlogPosts() {
   const loaderElements = document.querySelectorAll(".loader");
   const loaderArray = Array.from(loaderElements);
   try {
-
     // Display the loaders (chatGPT)
     loaderArray.forEach((loader) => {
       loader.style.display = "block";
@@ -46,17 +45,17 @@ function createBlogHTML(blog) {
   blogContent.classList.add("blog");
   blogContent.id = blog.id;
 
-  // blogpost title
-  const title = document.createElement("h2");
+  // blogpost container link
   const blogLink = document.createElement("a");
   blogLink.href = `specific-blog.html?id=${blog.id}`;
-  blogLink.innerHTML = blog.title.rendered;
-  title.append(blogLink);
-  blogContent.append(title);
+
+  // blogpost title
+  const title = document.createElement("h2");
+  title.innerHTML = blog.title.rendered;
+  blogLink.append(title);
 
   // blog img
   // fetching each image with match(/src="([^"]+)"/) to extract the URL of the first img in the rendered content (chatGPT)
-  const blogContentContainer = document.createElement("div");
 
   // creating imgContainer to display the specific img from the api
   const imgContainer = document.createElement("div");
@@ -69,7 +68,6 @@ function createBlogHTML(blog) {
     img.src = img.src;
     img.alt = blog.title.rendered;
     img.classList.add("blog-img");
-    blogContent.append(img);
   } else {
     console.log("Image source not found:", blog);
   }
@@ -78,16 +76,22 @@ function createBlogHTML(blog) {
   const postDate = new Date(blog.date).toLocaleDateString();
   const date = document.createElement("h5");
   date.textContent = `Published on ${postDate}`;
-  blogContent.append(date);
 
+  // blog description
   const excerpt = document.createElement("p");
   excerpt.innerHTML = blog.excerpt.rendered;
-  blogContent.append(excerpt);
 
+  // appending the elements in the right order
+  blogContent.append(blogLink);
+  blogContent.append(title);
+  blogContent.append(img);
+  blogContent.append(date);
+  blogContent.append(excerpt);
+  blogContent.append(blogLink);
   container.append(blogContent);
 
-  //make all blogposts clickable
-  blogLink.addEventListener("click", (event) => {
+  // make the entire blog container clickable
+  blogContent.addEventListener("click", (event) => {
     event.preventDefault();
     window.location.href = blogLink.href;
   });
