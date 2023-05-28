@@ -242,8 +242,9 @@ h3 {
 .content img {
   display: block;
   margin: 0 auto;
-  height: 500px;
-  width: 800px;
+  height: auto;
+  width: var(--width);
+  max-width: var(--max-width);
 }
 
 /* modal */
@@ -621,12 +622,18 @@ textarea {
   width: var(--width);
   padding: 20px;
   box-sizing: var(--box-sizing);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .content img {
-  width: 70%;
-  object-fit: cover;
+  max-width: 80%;
   height: auto;
+  object-fit: contain;
+  max-height: auto;
 }
 
 .form-btn,
@@ -973,21 +980,36 @@ textarea {
     margin-bottom: 150px;
   }
 
-  .content figure {
+  .content {
     width: var(--width);
+    padding: 20px;
+    box-sizing: var(--box-sizing);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow-x: hidden; /* preventing horizontal scroll for figure img */
   }
 
-  .figure img {
-    width: var(--width);
-    max-width: var(--width);
-  }
-
+  figure img,
   .content img {
     display: block;
-    height: 400px;
-    width: 300px;
+    max-width: 100%;
+    max-height: 300px;
+    width: auto;
+    height: auto;
     margin: 0 auto;
-    max-width: var(--width);
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figure figcaption {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #888;
   }
 
   .content p {
