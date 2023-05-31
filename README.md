@@ -27,7 +27,9 @@ In this project exam I have been tasked to decide on a theme, concept and design
 1. Clone the repo:
 
 ```bash
-git clone git@github.com:KarenJoo/Rainydaus_website_CA
+git clone git@github.com:KarenJoo/project-exam-1-KarenJoo
+
+
 ```
 
 2. Install the dependencies:
