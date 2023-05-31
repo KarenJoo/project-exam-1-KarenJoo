@@ -2,68 +2,55 @@
 
 <img width="1035" alt="Screenshot 2023-05-31 at 15 30 42" src="https://github.com/KarenJoo/Rainydays_website_CA/assets/114563762/801b26e5-3140-4591-87b7-6e6968a27484">
 
-## Goal
+## Description
+In this project exam I have been tasked to decide on a theme, concept and design for a blog. I chose to create "Health Hub", a blog containing articles about health to encouragee and inspire the users to choose healthy habits and take good choices for themselves.The goal for this project was to put into practice the skills learned over the first year of studies.
 
-To put into practice the skills learned over your first year of studies.
+**Requirements:**
+- Set up a Wordpress installation used as a Headless CMS
+- Fetch all data from the WP REST API
+- Home page must fetch data in a "latest post" section displayed as a slider, cta-button to display next slide
+- Blogposts page must fetch and display 10 blogs by default, create a cta-button to display the remaining posts
+- Contact form using JS for validation, must show error messages
+- A dynamically built "specific blog page" using query stirngs params, and include a modal image window 
+- Install Hotjar to track user data, make changes and adjustments based on user feedback and insight from Hotjar 
 
-## Brief
-You have been tasked with creating a blog site. You can choose the design and topics covered on the blog, but it should have at least the following pages:
--	Home page
--	About page
--	List of blog posts
--	Blog post specific pages
--	Contact page.
+## Built With
 
-### Home Page
-The home page should have a ‘Latest Posts’ section which uses a carousel (slider) for users to click to view more posts. For example, by default the user can see four posts, then they can click an arrow on the right to view the next four posts, and click it again to view the next four posts. The user can also click back to view results they had previously seen. This must be implemented for desktop at least, but if you want a simpler layout for mobile, you can change it from being in a carousel.
+- HTML
+- CSS
+- JavaScript
 
-### Blog Page
+## Getting Started
 
-The blog posts page should show the first 10 blogs, and the user should click to view more results which then show underneath the first 10 blogs.
+### Installing
 
-### Blog Specific Page
+1. Clone the repo:
 
-The content of the blog specific page should be dynamically built using a query string parameter based on whatever link the user clicked. The title of the blog specific page should change based on the blog that has been clicked on e.g. “My Blog | An Article I Wrote”.
+```bash
+git clone git@github.com:KarenJoo/Rainydaus_website_CA
+```
 
-If images on the blog post page are clicked, a modal should appear giving the user a bigger view of that image. Clicking outside the image should hide the modal.
+2. Install the dependencies:
 
-### Contact page
+```
+npm install
+```
 
-Create a contact us page, there should be 4 textboxes on this page.
--	Name (Should be more than 5 characters long)
--	Email address (Must be a valid email address)
--	Subject (Should be more than 15 characters long)
--	Message content (Should be more than 25 characters long)
+### Running
 
-Please use JavaScript for validation, show error messages if the values in the textboxes do not meet the requirements.
+To run the app, run the following commands:
 
-### WordPress
+```bash
+npm run start
+```
 
-The content for your website will be stored on a WordPress installation used as a Headless CMS. It’s important to note that we are only using WordPress to provide an API and add content for the blog. You should not submit a link to a WordPress site, but build your website using HTML, CSS and JavaScript and making a call to the WordPress REST API to fetch the data. 
+## Contributing
 
-The project has two aspects:
--	API from your WordPress installation
--	Your website built with HTML, CSS and JavaScript
+Here you can detail any information you want to provide regarding contributing to the project. For big projects you will usually have a separate `CONTRIBUTING.md` and link to it, but for smaller projects you can simply include instructions here. These instructions can simply detail the process you want a person to take, such as to make sure to open a pull request so code can be reviewed.
 
-You will need to add at least 12 blogs for your website. You can use lorem ipsum for paragraphs if you need, but headings, images etc. should all make sense.
+## Authors and Contact
 
-Note that this is an exam, and therefore tutor support will be limited as per the study plan.
+**Karen Jo**
 
-## Level 1 Process
-
-1.	Decide on the theme for the blog you’re going to make
-2.	Create a prototype of the website
-3.	Install WordPress on your web host and add the blogs on the admin panel. 
-4.	Use the GitHub repo created by GitHub Classroom for your files and deploy to Netlify
-5.	Build your website using HTML, CSS and JavaScript making a call to the WordPress REST API to fetch your data.
-6.	Install Hotjar on your website.
-7.	Ask users to test your website, and adjust based on their feedback and any insights from Hotjar.
-8.	Write a report documenting your project (template provided in this repository).
-9.	Submit your report as a PDF and a link to both your Netlify deployment and your GitHub repo.
- 
-## Level 2 Process (optional)
-
-1.	You can try adding a sort, filter, or search to the blog posts page allowing users to find the blog post more easily that they’re looking for. 
-2.	Post the data from the contact form to WordPress so you have the details saved.
-3.	Allow users to submit comments on a blog post, and post this data to WordPress
+📫 KarFik31658@stud.noroff.no
 
