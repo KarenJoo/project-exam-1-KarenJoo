@@ -1,4 +1,6 @@
-## Project Exam 1
+# Project Exam 1
+
+<img width="1035" alt="Screenshot 2023-05-31 at 15 30 42" src="https://github.com/KarenJoo/Rainydays_website_CA/assets/114563762/801b26e5-3140-4591-87b7-6e6968a27484">
 
 ## Goal
 
